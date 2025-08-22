@@ -655,9 +655,7 @@
           </div>
         </div>
         <p class="testimonial__quote">
-    Merci beaucoup Aïcha 🙏
-Le site est exactement comme je voulais, je suis très content du résultat 🤩.
-Bravo pour ton travail et ton professionnalisme 
+          Très professionnelle et réactive.
         </p>
         <a href="https://santebliss.com/" class="testimonial__project">Projet : SanteBliss</a>
       </div>
@@ -665,8 +663,7 @@ Bravo pour ton travail et ton professionnalisme 
       <!-- Slide 3 (image WhatsApp conservée + grande) -->
       <div class="testimonial__card swiper-slide">
         <div class="testimonial__header">
-
-                <img src="assets/img/WhatsApp Image 2025-08-22 at 14.07.42_4279830f.jpg"  alt="Afrilavage" class="work__img">
+          <img src="assets/img/WhatsApp Image 2025-08-22 at 14.07.42_4279830f.jpg" alt="Capture WhatsApp avis" class="testimonial__img testimonial__img--large">
           <div>
             <h3 class="testimonial__name">Yassine Serrafi</h3>
             <span class="testimonial__role">CEO — Afrilavage</span>
@@ -726,7 +723,7 @@ Bravo pour ton travail et ton professionnalisme 
       <!-- Slide 7 (image WhatsApp conservée + grande) -->
       <div class="testimonial__card swiper-slide">
         <div class="testimonial__header">
-          <img src="assets/img/WhatsApp Image 2025-08-22 at 14.09.37_d919a5cf.jpg"  alt="Afrilavage" class="work__img">
+          <img src="assets/img/WhatsApp Image 2025-08-22 at 14.09.37_d919a5cf.jpg" alt="Capture WhatsApp avis" class="testimonial__img testimonial__img--large">
           <div>
             <h3 class="testimonial__name">Monsieur Noureddine Abad</h3>
           </div>
@@ -799,31 +796,30 @@ Bravo pour ton travail et ton professionnalisme 
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
-  <script>
-  // Détruit une éventuelle instance existante pour éviter les doublons
-  if (window.testimonialSwiper && typeof window.testimonialSwiper.destroy === 'function') {
-    window.testimonialSwiper.destroy(true, true);
-  }
-
-  window.testimonialSwiper = new Swiper('.testimonial__container', {
-    loop: true,
-    grabCursor: true,
-    spaceBetween: 24,
-    slidesPerView: 1,
-    pagination: {
-      el: '.testimonial__container .swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.testimonial__container .swiper-button-next',
-      prevEl: '.testimonial__container .swiper-button-prev',
-    },
-    breakpoints: {
-      768: { slidesPerView: 2 },
-      1024:{ slidesPerView: 2 } // tu peux remettre 3 si tu veux
-    }
-  });
-</script>
+    <script>
+        // Initialiser EmailJS avec ton User ID
+        (function() {
+          emailjs.init("ws5C0bbs06CbwA1_N"); // Remplace "ton_user_id" par ton User ID EmailJS
+        })();
+      
+        // Ajouter un événement submit au formulaire
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Empêche le rechargement de la page
+      
+          // Récupérer les données du formulaire
+          const formData = new FormData(this);
+      
+          // Envoyer le formulaire via EmailJS
+          emailjs.sendForm('service_we20q3w', 'template_mmumd83', this)
+            .then(function(response) {
+              console.log('SUCCESS!', response);
+              alert('Message envoyé avec succès!');
+            }, function(error) {
+              console.log('FAILED...', error);
+              alert('Échec de l\'envoi du message.');
+            });
+        });
+      </script>
 
       
       

@@ -46,27 +46,41 @@
   --z-fixed: 100;
   --z-modal: 1000;
 }
-/* Laisser les captures WhatsApp telles quelles */
+/* --- Testimonials fixes --- */
+.testimonial__container { 
+  position: relative;   /* pour positionner les flèches au-dessus */
+}
+
+/* Captures WhatsApp : grandes mais contrôlées */
 .testimonial__img--large{
   display: block;
-  width: auto;           /* pas de réduction forcée */
+  max-width: 110px;     /* garde “un peu grand” mais pas géant */
+  max-height: 110px;
+  width: auto;
   height: auto;
-  max-width: 100%;       /* évite seulement de dépasser la carte */
-  border-radius: .75rem; /* coins doux */
-  object-fit: contain;   /* pas de recadrage */
+  border-radius: .75rem;   /* rectangle doux pour les screenshots */
+  object-fit: cover;
   border: 2px solid var(--first-color);
 }
 
-/* Un peu d'air autour quand l'image est grande */
-.testimonial__header{ gap: 1rem; }
-
-/* Sur mobile, empile l'image au-dessus du texte si besoin */
-@media (max-width: 768px){
-  .testimonial__header{ flex-direction: column; align-items: flex-start; }
+/* Boutons Swiper au-dessus des cartes */
+.swiper-button-prev, .swiper-button-next{
+  z-index: 10;          /* > aux cartes */
+  pointer-events: auto; /* clics actifs */
 }
 
-/* On garde les flèches au-dessus (de mon msg précédent) */
-.swiper-button-prev, .swiper-button-next{ z-index: 10; }
+/* (optionnel) style des flèches pour visibilité */
+.swiper-button-prev, .swiper-button-next{
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background: var(--container-color);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  color: var(--first-color);
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+  font-size: 18px;
+}
 
 /* Responsive typography */
 @media screen and (min-width: 968px) {
