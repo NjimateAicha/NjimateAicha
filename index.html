@@ -27,16 +27,57 @@
 
     <title> Portfolio de Njimate </title>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        .whatsapp-float,
+.instagram-float {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; /* vert WhatsApp */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 50px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* WhatsApp en bas */
+.whatsapp-float {
+  bottom: 20px;
+}
+
+/* Instagram juste au-dessus */
+.instagram-float {
+  bottom: 80px;          /* plus haut */
+  background: #E1306C;   /* couleur Insta */
+}
+
+    </style>
 
 </head>
     
 <!-- Bouton WhatsApp -->
-<a href="https://api.whatsapp.com/send?phone=212621309024&text=Bonjour%20Aicha%20!%20Je%20viens%20de%20voir%20votre%20portfolio." 
-   class="whatsapp-float" 
-   target="_blank" 
+<!-- Bouton WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=212621309024&text=Bonjour%20Aicha%20!%20Je%20viens%20de%20voir%20votre%20portfolio."
+   class="whatsapp-float"
+   target="_blank"
    title="Contactez-moi sur WhatsApp">
     <i class='bx bxl-whatsapp'></i>
 </a>
+
+<!-- Bouton Instagram -->
+<a href="https://www.instagram.com/njimate_aicha"
+   class="instagram-float"
+   target="_blank"
+   title="Voir mon contenu sur Instagram">
+    <i class='bx bxl-instagram'></i>
+</a>
+
+   
 
 <body>
     <!--=============== HEADER ===============-->
@@ -93,48 +134,60 @@
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== HOME ===============-->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__data">
-                    <span class="home__greeting">Bonjour, je suis</span>
-                    <h1 class="home__name">Njimate Aicha</h1>
-      
-                    <h3>Consultante SAP ABAP, Développeuse Web & Mobile, et passionnée de Marketing Digital</h3>
-                    <br>
-                    <p>
-                        Je crée des solutions digitales performantes : applications mobiles, sites web modernes, stratégies marketing impactantes,
-                    </p>
-                    <p>
-                        et expériences utilisateurs sur mesure.
-                    </p> 
+     <section class="home section" id="home">
+    <div class="home__container container grid">
+        
+        <div class="home__data">
+            <span class="home__greeting">Bonjour, je suis</span>
+            <h1 class="home__name">Njimate Aicha</h1>
 
-                    <div class="home__button">
-                        <a download="" href="assets/pdf/Njimate_Aicha_COnsultanteSap.pdf" class="button button--ghost">
-                            Télécharger CV
-                        </a>
+            <h3 class="home__profession">
+              Développeuse Web & Mobile . Consultante SAP ABAP · Marketing Digital
+            </h3>
 
-                        <a href="#about" class="button">À propos</a>
-                    </div>
-                </div>
+            <p class="home__description">
+                Je conçois des solutions digitales performantes : applications mobiles, sites web modernes,
+                stratégies marketing impactantes et expériences utilisateurs sur mesure.
+            </p>
 
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/aicha-njimate-846aa5245/" target="_blank" class="home__social-link">
-                        <i class='bx bxl-linkedin'></i>
-                    </a>
-                    <a href="https://github.com/NjimateAicha" target="_blank" class="home__social-link">
-                        <i class='bx bxl-github'></i>
-                    </a>
-                    <a href="#" target="_blank" class="home__social-link">
-                        <i class='bx bxl-dribbble'></i>
-                    </a>
-                </div>
+            <p class="home__description">
+                J’accompagne les cabinets, e-commerces et PME à lancer ou optimiser leur <strong>site web</strong>,
+                <strong>application</strong> et <strong>présence digitale</strong> pour augmenter leur visibilité
+                et attirer plus de clients.
+            </p>
 
-                <a href="#about" class="home__scroll">
-                    <i class='bx bx-mouse home__scroll-icon'></i>
-                    <span class="home__scroll-name">Défiler vers le bas</span>
+            <div class="home__button">
+                <a download="" href="assets/pdf/Njimate_Aicha_COnsultanteSap.pdf" class="button button--ghost">
+                    Télécharger CV
                 </a>
+
+                <a href="#about" class="button">À propos</a>
             </div>
-        </section>
+        </div>
+
+        <!-- Social Links -->
+        <div class="home__social">
+            <a href="https://www.linkedin.com/in/aicha-njimate-846aa5245/" target="_blank" class="home__social-link">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+
+            <a href="https://github.com/NjimateAicha" target="_blank" class="home__social-link">
+                <i class='bx bxl-github'></i>
+            </a>
+
+            <a href="https://www.instagram.com/njimate_aicha" target="_blank" class="home__social-link">
+                <i class='bx bxl-instagram'></i>
+            </a>
+        </div>
+
+        <a href="#about" class="home__scroll">
+            <i class='bx bx-mouse home__scroll-icon'></i>
+            <span class="home__scroll-name">Défiler vers le bas</span>
+        </a>
+
+    </div>
+</section>
+
 
         <!--=============== ABOUT ===============-->
         <section class="about section" id="about">
@@ -158,14 +211,16 @@
                         </div>
                     </div>
 
+                
                     <p class="about__description">
-                  Je suis diplômée d’un Master en Réseaux et Systèmes Informatiques, avec une forte passion pour les technologies digitales.
-                Mon parcours allie compétences techniques et créativité, ce qui me permet de concevoir et développer des applications web et mobiles
-                performantes et adaptées aux besoins des utilisateurs.
-                J’ai acquis une expérience pratique avec des frameworks tels que Laravel, Angular et Flutter, ainsi qu’avec le développement SAP ABAP lors de mon stage.
-                Parallèlement, je m’intéresse également au marketing digital, en élaborant des stratégies visant à améliorer la visibilité et l’impact en ligne.
-                Curieuse, orientée solution et motivée par l’innovation, je cherche constamment à apprendre et à relever de nouveaux défis afin d’apporter une réelle valeur ajoutée à chaque projet.
-                                    </p>
+  Diplômée d’un Master en Réseaux et Systèmes Informatiques, je crée des solutions digitales 
+  performantes : sites web modernes, applications mobiles et outils SAP adaptés aux besoins métiers.
+  J’ai travaillé avec Laravel, Angular, Flutter et SAP ABAP sur des projets concrets (e-commerce, 
+  cabinets, services). 
+  Aujourd’hui, j’accompagne les entreprises à gagner en visibilité et en efficacité grâce au 
+  développement et au marketing digital.
+</p>
+
 
                     <a href="#contact" class="button about__button-contact">Me contacter</a>
                 </div>
@@ -720,8 +775,8 @@ Bravo pour ton travail et ton professionnalisme 
         <div class="contact__card">
           <i class='bx bxl-instagram footer__social-icon'></i>
           <h3 class="contact__card-title">Instagram</h3>
-          <span class="contact__card-data">FalconDev</span>
-          <a href="https://www.instagram.com/falcondeev" target="_blank" class="contact__button">
+          <span class="contact__card-data">Njimate_aicha</span>
+          <a href="https://www.instagram.com/njimate_aicha/" target="_blank" class="contact__button">
             Écrire <i class='bx bx-right-arrow contact__button-icon'></i>
           </a>
         </div>
