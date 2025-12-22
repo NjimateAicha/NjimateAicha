@@ -25,50 +25,62 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title> Portfolio de Njimate </title>
+    <title> Njimate Aicha</title>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
-        .whatsapp-float,
+.whatsapp-float,
 .instagram-float {
   position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 20px;
+  width: 44px;
+  height: 44px;
   right: 20px;
-  background-color: #25D366; /* vert WhatsApp */
-  color: #fff;
   border-radius: 50%;
-  text-align: center;
-  font-size: 28px;
-  line-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transition: all 0.25s ease;
 }
 
-/* WhatsApp en bas */
+/* WhatsApp */
 .whatsapp-float {
   bottom: 20px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
 }
 
-/* Instagram juste au-dessus */
+/* Instagram */
 .instagram-float {
-  bottom: 80px;          /* plus haut */
-  background: #E1306C;   /* couleur Insta */
-}
-        /* Plus d'espace entre les icônes réseaux et le texte */
-.home__container {
-  column-gap: 4rem;      /* espace horizontal entre colonnes du grid */
-  /* ou: gap: 4rem; si tu veux gérer lignes + colonnes */
+  bottom: 76px;
+  background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
 }
 
-.home__social {
-  row-gap: 1rem;         /* espace entre les icônes entre elles */
-  margin-right: 1rem;    /* décale un peu tout le bloc réseaux */
+/* Hover effect */
+.whatsapp-float:hover,
+.instagram-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
-.home__scroll {
-  position: absolute;
-  right: 2.5rem;   /* ajuste ici pour le mettre plus à droite */
-  bottom: 2.5rem;  /* un peu au-dessus du bas de l'écran */
+/* Base */
+.whatsapp-float, .instagram-float{
+  position: fixed;
+  right: 16px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+/* Desktop / default */
+.whatsapp-float{ bottom: 20px; }
+.instagram-float{ bottom: 80px; }
+
+/* MOBILE: remonter au-dessus du menu bottom */
+@media (max-width: 768px){
+  .whatsapp-float{ bottom: 95px; }   /* au-dessus du dock */
+  .instagram-float{ bottom: 155px; } /* juste au-dessus */
 }
 
 
@@ -101,6 +113,12 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">Njimate Aicha</a>
+
+            
+
+               
+                
+            </div>
 
             <div class="nav__menu">
                 <ul class="nav__list">
@@ -143,7 +161,15 @@
             </div>
 
             <!--=============== Bouton changement de thème ===============-->
-            <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+            <a href="https://calendly.com/njimateaicha/30min"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="nav__cta">
+   Book a free Consultation
+</a>
+
+<i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+
 
         </nav>
     </header>
@@ -153,34 +179,49 @@
         <!--=============== HOME ===============-->
      <section class="home section" id="home">
     <div class="home__container container grid">
+   
         
         <div class="home__data">
             <span class="home__greeting">Bonjour, je suis</span>
             <h1 class="home__name">Njimate Aicha</h1>
 
             <h3 class="home__profession">
-              Développeuse Web & Mobile . Consultante SAP ABAP · Marketing Digital
+              Développeuse Web , Mobile  & SaaS / Fondatrice de 
+              <a href="https://falcondeev.com" target="_blank" style="color:#8b5cf6; font-weight:600;">
+                FalconDeev
+              </a>
+              / Consultations Freelance 1:1  / Tech Speaker 
             </h3>
             <br>
+        
             <p class="home__description">
-                Je conçois des solutions digitales performantes : applications mobiles, sites web modernes,
-                stratégies marketing impactantes et expériences utilisateurs sur mesure.
+                J’aide les entrepreneurs, marques et entreprises à transformer leurs idées 
+                en <strong>solutions digitales performantes</strong> : sites web modernes, 
+            applications mobiles, plateformes <strong>SaaS</strong> .
+
             </p>
  <br>
-            <p class="home__description">
-                J’accompagne les cabinets, e-commerces et PME à lancer ou optimiser leur <strong>site web</strong>,
-                <strong>application</strong> et <strong>présence digitale</strong> pour augmenter leur visibilité
-                et attirer plus de clients.
-            </p>
+           <p class="home__description">
+    À travers <strong>FalconDeev</strong>, j’accompagne les startups, cabinets, 
+    e-commerces et PME à <strong>lancer, structurer et scaler</strong> leur présence digitale.
+    Je propose également des <strong>consultations freelance 1:1</strong> 
+    (positionnement, offres, pricing, acquisition de clients, carrière tech)
+    et j’interviens dans des <strong>écoles et événements tech</strong> en tant que speaker.
+</p>
  <br>
+     <img src="assets/img/me.jpeg" alt="Njimate Aicha">
+     <br>
+     <br>
             <div class="home__button">
-                <a download="" href="assets/pdf/Njimate_Aicha_COnsultanteSap.pdf" class="button button--ghost">
+                <a download="" href="assets/pdf/NJIMATE_Aicha.pdf" class="button button--ghost">
                     Télécharger CV
                 </a>
 
-                <a href="#about" class="button">À propos</a>
+                <a href="#https://calendly.com/njimateaicha/30min" class="button">Book a free Consultation</a>
+                
             </div>
         </div>
+
 
        
 
@@ -190,8 +231,8 @@
 
         <!--=============== ABOUT ===============-->
         <section class="about section" id="about">
-            <span class="section__subtitle">Mon introduction</span>
-            <h2 class="section__title">À propos de moi</h2>
+            
+            <h1 class="section__title">À propos de moi</h1>
 
             <div class="about__container container grid">
                 <img src="assets/img/WhatsApp Image 2025-06-25 at 17.01.55_d995fe4d.jpg" alt="" class="about__img">
@@ -201,7 +242,7 @@
                         <div class="about__box">
                             <i class='bx bx-briefcase-alt about__icon'></i>
                             <h3 class="about__title">Réalisés</h3>
-                            <span class="about__subtitle">10+ Projets</span>
+                            <span class="about__subtitle">20+ Projets</span>
                         </div>
                         <div class="about__box">
                             <i class='bx bx-support about__icon'></i>
@@ -212,14 +253,23 @@
 
                 
                     <p class="about__description">
-  Diplômée d’un Master en Réseaux et Systèmes Informatiques, je crée des solutions digitales 
-  performantes : sites web modernes, applications mobiles et outils SAP adaptés aux besoins métiers.
-  J’ai travaillé avec Laravel, Angular, Flutter et SAP ABAP sur des projets concrets (e-commerce, 
-  cabinets, services). 
-                         <br>
-  Aujourd’hui, j’accompagne les entreprises à gagner en visibilité et en efficacité grâce au 
-  développement et au marketing digital.
+  
+Diplômée d’un Master en Réseaux & Systèmes Informatiques, je conçois des solutions digitales modernes : 
+<strong>sites web</strong>, <strong>applications mobile</strong> et <strong>SAAS</strong> pensées pour convertir et évoluer.
+
+<br><br>
+
+Fondatrice de  <a href="https://falcondeev.com" target="_blank" style="color:#8b5cf6; font-weight:600;">
+                FalconDeev
+              </a>, j’accompagne des entrepreneurs, e-commerces, cabinets et PME à 
+<strong>lancer</strong>, <strong>optimiser</strong> et <strong>scaler</strong> leur présence digitale (UX, performance, SEO, automatisations).
+
+<br><br>
+
+Je propose aussi des <strong>consultations freelance 1:1</strong> (positionnement, offre, pricing, acquisition clients, portfolio) 
+et j’interviens dans des <strong>écoles & événements tech</strong> en tant que speaker.
 </p>
+
 
 
                     <a href="#contact" class="button about__button-contact">Me contacter</a>
@@ -229,12 +279,71 @@
 
     
 <section class="skills section" id="skills">
-    <span class="section__subtitle">Mes Compétences</span>
-    <h2 class="section__title">Mon Expérience</h2>
+    <!-- <span class="section__subtitle">Mes Compétences</span> -->
+   <h1 class="section__title">Mes Compétences</h1>
 
     <div class="skills__container container grid">
 
         <!-- Développement Frontend -->
+         <div class="skills__content">
+  <h3 class="skills__title">Consulting & Business</h3>
+  <div class="skills__box">
+    <div class="skills__group">
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Consultations Freelance 1:1</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Positionnement & Offre</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Pricing & Packagings</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills__group">
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Acquisition Clients (DM/Outreach)</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">SaaS & MVP Strategy</h3>
+<span class="skills__level">Avancé</span>
+
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Roadmap Produit / MVP</h3>
+          <span class="skills__level">Intermédiaire</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
         <div class="skills__content">
             <h3 class="skills__title">Développement Frontend</h3>
             <div class="skills__box">
@@ -269,36 +378,68 @@
         </div>
 
         <!-- Services SAP -->
-        <div class="skills__content">
-            <h3 class="skills__title">Services SAP</h3>
-            <div class="skills__box">
-                <div class="skills__group">
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">SAP ABAP</h3><span class="skills__level">Avancé</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">SAPUI5 / Fiori</h3><span class="skills__level">Avancé</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">CDS / RAP / OData</h3><span class="skills__level">Avancé</span></div></div>
-                </div>
-                <div class="skills__group">
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">SmartForms & ALV</h3><span class="skills__level">Intermédiaire</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Business Application Studio</h3><span class="skills__level">Intermédiaire</span></div></div>
-                </div>
-            </div>
-        </div>
+      <!-- Consulting & Business -->
 
         <!-- Marketing Digital -->
-        <div class="skills__content">
-            <h3 class="skills__title">Marketing Digital</h3>
-            <div class="skills__box">
-                <div class="skills__group">
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Stratégie Marketing</h3><span class="skills__level">Avancé</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">SEO / Contenu</h3><span class="skills__level">Avancé</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Campagnes Email</h3><span class="skills__level">Intermédiaire</span></div></div>
-                </div>
-                <div class="skills__group">
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Instagram / TikTok</h3><span class="skills__level">Avancé</span></div></div>
-                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Canva / Figma</h3><span class="skills__level">Avancé</span></div></div>
-                </div>
-            </div>
+   <div class="skills__content">
+  <h3 class="skills__title">Growth & Marketing Digital</h3>
+  <div class="skills__box">
+
+    <div class="skills__group">
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Stratégie Marketing</h3>
+          <span class="skills__level">Avancé</span>
         </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Funnels & Conversion</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">SEO & Content Strategy</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills__group">
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Paid Ads (Meta / Google)</h3>
+          <span class="skills__level">Intermédiaire</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Email Automation</h3>
+          <span class="skills__level">Intermédiaire</span>
+        </div>
+      </div>
+
+      <div class="skills__data">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+          <h3 class="skills__name">Product Marketing (SaaS)</h3>
+          <span class="skills__level">Avancé</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
     </div>
 </section>
@@ -309,12 +450,12 @@
        
        <section class="work section" id="work">
             
-  <span class="section__subtitle">Mon Portfolio</span>
-  <h2 class="section__title">Travaux Récents</h2>
+  
+  <h1 class="section__title">Projets & Réalisations</h1>
 
-  <div class="work__filters">
+  <!-- <div class="work__filters">
     <span class="work__item active-work" data-filter="all">Tous les Projets</span>
-  </div>
+  </div> -->
 
   <!-- <div class="work__container container grid"> -->
     <div class="work__container container grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
@@ -366,9 +507,9 @@
       <a href="https://www.ab-services.ma/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
     </div>
     <div class="work__card mix web">
-      <img src="assets/img/falcon.jpeg" alt="FalconDev" class="work__img">
+      <img src="assets/img/siteflc.jpeg" alt="FalconDev" class="work__img">
       <h3 class="work__title">FalconDev Portfolio</h3>
-      <p class="work__desc">Site personnel de présentation de services freelance. HTML/CSS.</p>
+      <p class="work__desc">Site  de présentation de services freelance. React.</p>
       <a href="https://falcondeev.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
     </div>
 
@@ -388,7 +529,7 @@
       <a href="https://brunettefrance.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
     </div>
     <div class="work__card mix web">
-       <img src="assets/img/v.jpeg" alt="Visa App" class="work__img">
+       <img src="assets/img/arfk.jpeg" alt="Visa App" class="work__img">
       <h3 class="work__title">Visa Reservation App</h3>
       <p class="work__desc">Réservation de visas, upload docs, suivi. Laravel + Angular.</p>
       <a href="https://arfakvoyage.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
@@ -413,7 +554,23 @@
       <p class="work__desc">Application Java Swing pour gérer les étudiants, notes, enseignants.</p>
       <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
     </div>
+<div class="work__card mix web">
+  <img src="assets/img/image.png" alt="Moon Interior" class="work__img">
 
+  <h3 class="work__title">Moon Interior</h3>
+
+  <p class="work__desc">
+    Site vitrine premium pour une entreprise de design & aménagement intérieur. 
+    
+  </p>
+
+  <a href="https://mooninterior.ma/" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="work__button">
+     Voir le site <i class='bx bx-right-arrow work__icon'></i>
+  </a>
+</div>
     <div class="work__card mix web">
   <img src="assets/img/QUIZ.jpeg" alt="Quiz App" class="work__img">
       <h3 class="work__title">Quiz Web App</h3>
@@ -436,7 +593,7 @@
     </div>
 
     <div class="work__card mix web">
-      <img src="assets/img/mobile.jpg" alt="Tourism App" class="work__img">
+      <img src="assets/img/mblll.jpeg" alt="Tourism App" class="work__img">
       <h3 class="work__title">Tourism Mobile App</h3>
       <p class="work__desc">App de réservation et découverte touristique. Flutter + Firebase.</p>
       <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
@@ -448,6 +605,9 @@
       <p class="work__desc">Suivi des charges, paiements et gestion immeuble. Laravel + React.</p>
       <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
     </div>
+    
+
+
 
     
 
@@ -457,8 +617,8 @@
 </section>
 <!--=============== TESTIMONIALS ===============-->
 <section class="testimonials section" id="testimonials">
-  <span class="section__subtitle">Ils me font confiance</span>
-  <h2 class="section__title">Avis Clients</h2>
+
+  <h1 class="section__title">Avis  de mes Clients</h1>
 
   <div class="testimonial__container container swiper">
     <div class="swiper-wrapper">
@@ -505,9 +665,7 @@ Bravo pour ton travail et ton professionnalisme 
             <span class="testimonial__role">CEO — Afrilavage</span>
           </div>
         </div>
-        <p class="testimonial__quote">
-          “Réservation en ligne fluide, calcul dynamique impeccable. Notre taux de conversion a augmenté.”
-        </p>
+        
         <a href="https://www.afrilavage.com/" class="testimonial__project">Projet : Afrilavage</a>
       </div>
 
@@ -579,12 +737,15 @@ Bravo pour ton travail et ton professionnalisme 
 <!--=============== SERVICES ===============-->
 <section class="services section">
   <span class="section__subtitle">Mes Services</span>
-  <h2 class="section__title">Ce que je propose</h2>
+  <h1 class="section__title">Ce que je propose</h1>
 
   <div class="services__container container grid">
     <!-- Card 1 -->
     <div class="services__card">
-      <h3 class="services__title">Développement Web et Mobile <br> d’Applications</h3>
+      <h3 class="services__title">
+Développement Web, Mobile <br> & SaaS
+</h3>
+
       <span class="services__button">
         Voir Plus <i class='bx bx-right-arrow services__icon'></i>
       </span>
@@ -592,10 +753,12 @@ Bravo pour ton travail et ton professionnalisme 
       <div class="services__modal">
         <div class="services__modal-content">
           <i class='bx bx-x services__modal-close'></i>
-          <h3 class="services__modal-title">Développement Web et Mobile d’Applications</h3>
+          <h3 class="services__modal-title">Développement Web , Mobile & Saas</h3>
           <p class="services__modal-description">
             Donnez vie à votre vision avec des solutions personnalisées.
           </p>
+    >
+
           <ul class="services__modal-list">
             <li class="services__modal-item">
               <i class='bx bx-check-circle'></i>
@@ -619,6 +782,43 @@ Bravo pour ton travail et ton professionnalisme 
         </div>
       </div>
     </div>
+<!-- Card Consultation -->
+<div class="services__card">
+  <h3 class="services__title">Consultations Freelance & SaaS <br> 1:1</h3>
+  <span class="services__button">
+    Voir plus <i class='bx bx-right-arrow services__icon'></i>
+  </span>
+
+  <div class="services__modal">
+    <div class="services__modal-content">
+      <i class='bx bx-x services__modal-close'></i>
+      <h3 class="services__modal-title">Consultations 1:1 – Freelance & SaaS</h3>
+      <p class="services__modal-description">
+        Des sessions personnalisées pour structurer, clarifier et accélérer votre projet ou carrière.
+      </p>
+      <ul class="services__modal-list">
+        <li class="services__modal-item">
+          <i class='bx bx-check-circle'></i>
+          <p class="services__modal-info">
+            Positionnement & offre : clarification de votre proposition de valeur.
+          </p>
+        </li>
+        <li class="services__modal-item">
+          <i class='bx bx-check-circle'></i>
+          <p class="services__modal-info">
+            Freelance : pricing, acquisition clients, portfolio, stratégie.
+          </p>
+        </li>
+        <li class="services__modal-item">
+          <i class='bx bx-check-circle'></i>
+          <p class="services__modal-info">
+            SaaS & MVP : roadmap produit, choix techniques, lancement.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
     <!-- Card 2 -->
     <div class="services__card">
@@ -698,7 +898,8 @@ Bravo pour ton travail et ton professionnalisme 
 
     <!-- Card 4 (moved inside the grid) -->
     <div class="services__card">
-      <h3 class="services__title">Marketing Digital <br> Stratégie & Contenu</h3>
+     <h3 class="services__title">Growth Marketing <br> & Visibilité Digitale</h3>
+
       <span class="services__button">
         Voir Plus <i class='bx bx-right-arrow services__icon'></i>
       </span>
@@ -745,12 +946,12 @@ Bravo pour ton travail et ton professionnalisme 
 
         <!--=============== CONTACT ===============-->
       <section class="contact section" id="contact">
-  <span class="section__subtitle">Entrer en contact</span>
-  <h3 class="section__title">Me Contacter</h3>
+  
+  <h1 class="section__title">Me Contacter</h1>
 
   <div class="contact__container container grid">
     <div class="contact__content">
-      <h3 class="contact__title contact__title-info">Discutons</h3>
+      <h3 class="contact__title contact__title-info">Mes Informations</h3>
 
       <div class="contact__info">
         <div class="contact__card">

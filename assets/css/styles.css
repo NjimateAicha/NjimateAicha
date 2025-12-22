@@ -80,6 +80,23 @@
     --smaller-font-size: 0.813rem;
   }
 }
+.nav__cta{
+  font-size: 0.75rem;      /* plus petit */
+  padding: 5px 10px;       /* compact */
+  border-radius: 999px;
+  background: #8b5cf6;
+  color: #fff;
+  font-weight: 500;
+  margin-right: 0.6rem;
+  transition: all .25s ease;
+  line-height: 1;
+}
+
+.nav__cta:hover{
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
