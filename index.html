@@ -82,6 +82,28 @@
   .whatsapp-float{ bottom: 95px; }   /* au-dessus du dock */
   .instagram-float{ bottom: 155px; } /* juste au-dessus */
 }
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto; /* pousse vers la droite si besoin */
+  margin-right:12px;
+  font-weight:600;
+}
+
+.lang-link{
+  opacity:.75;
+  transition:.2s;
+}
+
+.lang-link:hover{ opacity:1; }
+
+.lang-link.active{
+  opacity:1;
+  text-decoration:underline;
+}
+
+.lang-sep{ opacity:.4; }
 
 
     </style>
@@ -159,6 +181,14 @@
 
                 </ul>
             </div>
+            <!-- Language Switcher -->
+<div class="lang-switch">
+  <a class="lang-link active" href="index.html">FR</a>
+  <span class="lang-sep">|</span>
+  <a class="lang-link" href="en.html">EN</a>
+</div>
+
+
 
             <!--=============== Bouton changement de thème ===============-->
             <a href="https://calendly.com/njimateaicha/30min"

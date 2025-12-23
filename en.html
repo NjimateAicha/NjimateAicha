@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--=============== FAVICON ===============-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#a789d4">
+
+  <!--=============== BOXICONS ===============-->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+  <!--=============== SWIPER CSS ===============-->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <title>Njimate Aicha</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <style>
+    .whatsapp-float,
+    .instagram-float {
+      position: fixed;
+      width: 44px;
+      height: 44px;
+      right: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    /* WhatsApp */
+    .whatsapp-float {
+      bottom: 20px;
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+    }
+
+    /* Instagram */
+    .instagram-float {
+      bottom: 76px;
+      background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+    }
+
+    /* Hover effect */
+    .whatsapp-float:hover,
+    .instagram-float:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Base */
+    .whatsapp-float,
+    .instagram-float {
+      position: fixed;
+      right: 16px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 9999;
+    }
+
+    /* Desktop / default */
+    .whatsapp-float {
+      bottom: 20px;
+    }
+
+    .instagram-float {
+      bottom: 80px;
+    }
+
+    /* MOBILE: move above bottom menu */
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 95px;
+      }
+
+      /* above dock */
+      .instagram-float {
+        bottom: 155px;
+      }
+
+      /* just above */
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+      /* push right */
+      margin-right: 12px;
+      font-weight: 600;
+    }
+
+    .lang-link {
+      opacity: .75;
+      transition: .2s;
+    }
+
+    .lang-link:hover {
+      opacity: 1;
+    }
+
+    .lang-link.active {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .lang-sep {
+      opacity: .4;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <a href="https://api.whatsapp.com/send?phone=212621309024&text=Hi%20Aicha%20!%20I%20just%20saw%20your%20portfolio."
+    class="whatsapp-float" target="_blank" title="Contact me on WhatsApp">
+    <i class='bx bxl-whatsapp'></i>
+  </a>
+
+  <!-- Instagram Button -->
+  <a href="https://www.instagram.com/njimate_aicha" class="instagram-float" target="_blank"
+    title="View my content on Instagram">
+    <i class='bx bxl-instagram'></i>
+  </a>
+
+  <!--=============== HEADER ===============-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">Njimate Aicha</a>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item ">
+            <a href="#home" class="nav__link">
+              <i class='bx bx-home'></i>
+            </a>
+          </li>
+
+          <li class="nav__item ">
+            <a href="#about" class="nav__link">
+              <i class='bx bx-user'></i>
+            </a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#skills" class="nav__link">
+              <i class='bx bx-book'></i>
+            </a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#work" class="nav__link">
+              <i class='bx bx-briefcase-alt-2'></i>
+            </a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">
+              <i class='bx bx-message-square-dots'></i>
+            </a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#testimonials" class="nav__link">
+              <i class='bx bx-comment-detail'></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="lang-switch">
+        <a class="lang-link" href="index.html">FR</a>
+        <span class="lang-sep">|</span>
+        <a class="lang-link active" href="en.html">EN</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="https://calendly.com/njimateaicha/30min" target="_blank" rel="noopener noreferrer" class="nav__cta">
+        Book a Free Consultation
+      </a>
+
+      <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+    </nav>
+  </header>
+
+  <!--=============== MAIN ===============-->
+  <main class="main">
+
+    <!--=============== HOME ===============-->
+    <section class="home section" id="home">
+      <div class="home__container container grid">
+        <div class="home__data">
+          <span class="home__greeting">Hi, I’m</span>
+          <h1 class="home__name">Njimate Aicha</h1>
+
+          <h3 class="home__profession">
+            Web, Mobile & SaaS Developer / Founder of
+            <a href="https://falcondeev.com" target="_blank" style="color:#8b5cf6; font-weight:600;">
+              FalconDeev
+            </a>
+            / 1:1 Freelance Consultations / Tech Speaker
+          </h3>
+          <br>
+
+          <p class="home__description">
+            I help entrepreneurs, brands, and businesses turn their ideas into
+            <strong>high-performing digital solutions</strong>: modern websites,
+            mobile applications, and <strong>SaaS</strong> platforms.
+          </p>
+
+          <br>
+
+          <p class="home__description">
+            Through <strong>FalconDeev</strong>, I support startups, law firms,
+            e-commerce businesses, and SMEs to <strong>launch, structure, and scale</strong> their digital presence.
+            I also offer <strong>1:1 freelance consultations</strong>
+            (positioning, offers, pricing, client acquisition, tech career)
+            and speak at <strong>tech schools and events</strong>.
+          </p>
+
+          <br>
+          <img src="assets/img/me.jpeg" alt="Njimate Aicha">
+          <br><br>
+
+          <div class="home__button">
+            <a download="" href="assets/pdf/NJIMATE_Aicha.pdf" class="button button--ghost">
+              Download CV
+            </a>
+
+            <a href="https://calendly.com/njimateaicha/30min" target="_blank" class="button">
+              Book a Free Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== ABOUT ===============-->
+    <section class="about section" id="about">
+      <h1 class="section__title">About Me</h1>
+
+      <div class="about__container container grid">
+        <img src="assets/img/WhatsApp Image 2025-06-25 at 17.01.55_d995fe4d.jpg" alt="" class="about__img">
+
+        <div class="about__data">
+          <div class="about__info">
+            <div class="about__box">
+              <i class='bx bx-briefcase-alt about__icon'></i>
+              <h3 class="about__title">Completed</h3>
+              <span class="about__subtitle">20+ Projects</span>
+            </div>
+            <div class="about__box">
+              <i class='bx bx-support about__icon'></i>
+              <h3 class="about__title">Support</h3>
+              <span class="about__subtitle">Available 24/7</span>
+            </div>
+          </div>
+
+          <p class="about__description">
+            With a Master’s degree in Networks & Information Systems, I build modern digital products:
+            <strong>websites</strong>, <strong>mobile applications</strong> and <strong>SaaS</strong> solutions designed
+            to convert and scale.
+            <br><br>
+
+            As the founder of
+            <a href="https://falcondeev.com" target="_blank" style="color:#8b5cf6; font-weight:600;">
+              FalconDeev
+            </a>, I help entrepreneurs, e-commerce brands, law firms, and SMEs
+            <strong>launch</strong>, <strong>optimize</strong> and <strong>scale</strong> their digital presence (UX,
+            performance, SEO, automation).
+            <br><br>
+
+            I also provide <strong>1:1 freelance consultations</strong> (positioning, offer, pricing, client
+            acquisition, portfolio)
+            and speak at <strong>tech schools & events</strong>.
+          </p>
+
+          <a href="#contact" class="button about__button-contact">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== SKILLS ===============-->
+    <section class="skills section" id="skills">
+      <h1 class="section__title">My Skills</h1>
+
+      <div class="skills__container container grid">
+
+        <!-- Consulting & Business -->
+        <div class="skills__content">
+          <h3 class="skills__title">Consulting & Business</h3>
+          <div class="skills__box">
+            <div class="skills__group">
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">1:1 Freelance Consultations</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Positioning & Offer</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Pricing & Packages</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__group">
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Client Acquisition (DM/Outreach)</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">SaaS & MVP Strategy</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Product Roadmap / MVP</h3>
+                  <span class="skills__level">Intermediate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="skills__content">
+          <h3 class="skills__title">Frontend Development</h3>
+          <div class="skills__box">
+            <div class="skills__group">
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">HTML</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">CSS / Bootstrap</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">JavaScript</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="skills__group">
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Angular</h3><span class="skills__level">Intermediate</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Flutter</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Git</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skills__content">
+          <h3 class="skills__title">Backend Development</h3>
+          <div class="skills__box">
+            <div class="skills__group">
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Laravel</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Django</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Python</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+            <div class="skills__group">
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">MySQL</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Firebase</h3><span class="skills__level">Advanced</span>
+                </div>
+              </div>
+              <div class="skills__data"><i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Java</h3><span class="skills__level">Intermediate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growth -->
+        <div class="skills__content">
+          <h3 class="skills__title">Growth & Digital Marketing</h3>
+          <div class="skills__box">
+            <div class="skills__group">
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Marketing Strategy</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Funnels & Conversion</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">SEO & Content Strategy</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__group">
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Paid Ads (Meta / Google)</h3>
+                  <span class="skills__level">Intermediate</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Email Automation</h3>
+                  <span class="skills__level">Intermediate</span>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                  <h3 class="skills__name">Product Marketing (SaaS)</h3>
+                  <span class="skills__level">Advanced</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--=============== WORK ===============-->
+    <section class="work section" id="work">
+      <h1 class="section__title">Projects & Work</h1>
+
+      <div class="work__container container grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_25-6-2025_171943_cabinethbavocats.com.jpeg" alt="Law Firm Website" class="work__img">
+          <h3 class="work__title">Cabinet HB Avocats</h3>
+          <p class="work__desc">Bilingual law firm website with consultation space. Laravel.</p>
+          <a href="https://cabinethbavocats.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_25-6-2025_172011_www.afrilavage.com.jpeg" alt="Afrilavage" class="work__img">
+          <h3 class="work__title">Afrilavage</h3>
+          <p class="work__desc">Laundry & car wash service with booking and dynamic total calculation.</p>
+          <a href="https://www.afrilavage.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_18-11-2025_12759_najiprom.ma.jpeg" alt="Najiprom" class="work__img">
+          <h3 class="work__title">NajiProm</h3>
+          <p class="work__desc">Construction & renovation company website.</p>
+          <a href="https://najiprom.ma/" class="work__button">View Website</a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_18-11-2025_121651_marocsol.com.jpeg" alt="Marocsol" class="work__img">
+          <h3 class="work__title">Marocsol</h3>
+          <p class="work__desc">Parquet, Gerflex & flooring specialist in Casablanca.</p>
+          <a href="https://marocsol.com/" class="work__button">View Website</a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_18-11-2025_121913_paradesoliviers.com.jpeg" alt="ParadesOliviers" class="work__img">
+          <h3 class="work__title">ParadesOliviers</h3>
+          <p class="work__desc">Modern parapharmacy e-commerce website with product management.</p>
+          <a href="https://paradesoliviers.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Screenshot 2025-09-08 135113.png" alt="AB-Services" class="work__img">
+          <h3 class="work__title">Ab-Services</h3>
+          <p class="work__desc">Modern showcase website designed to highlight products and services.</p>
+          <a href="https://www.ab-services.ma/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/siteflc.jpeg" alt="FalconDeev" class="work__img">
+          <h3 class="work__title">FalconDeev Portfolio</h3>
+          <p class="work__desc">Service showcase website. React.</p>
+          <a href="https://falcondeev.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_25-6-2025_172033_santebliss.com.jpeg" alt="SanteBliss" class="work__img">
+          <h3 class="work__title">SanteBliss</h3>
+          <p class="work__desc">Natural products online store with secure payment. Laravel.</p>
+          <a href="https://santebliss.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/Capture d’écran_13-9-2025_17252_brunettefrance.com (1).jpeg" alt="Brunette_france" class="work__img">
+          <h3 class="work__title">Brunette_france</h3>
+          <p class="work__desc">Online store specialized in women's dresses, with a secure payment system.</p>
+          <a href="https://brunettefrance.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/arfk.jpeg" alt="Visa App" class="work__img">
+          <h3 class="work__title">Visa Reservation App</h3>
+          <p class="work__desc">Visa booking, document upload, and tracking. Laravel + Angular.</p>
+          <a href="https://arfakvoyage.com/" class="work__button">View Website <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/cmd.jpeg" alt="Internal Order System" class="work__img">
+          <h3 class="work__title">Internal Order System</h3>
+          <p class="work__desc">Internal orders & invoices management with PDF export. Laravel + React.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/rcc.jpeg" alt="Face Recognition" class="work__img">
+          <h3 class="work__title">Face Recognition App</h3>
+          <p class="work__desc">Attendance system based on face recognition. Python + OpenCV.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix movil">
+          <img src="assets/img/des.jpeg" alt="College Management Desktop" class="work__img">
+          <h3 class="work__title">College Management Desktop</h3>
+          <p class="work__desc">Java Swing desktop app to manage students, grades, and teachers.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/image.png" alt="Moon Interior" class="work__img">
+          <h3 class="work__title">Moon Interior</h3>
+          <p class="work__desc">Premium showcase website for an interior design & fit-out company.</p>
+          <a href="https://mooninterior.ma/" target="_blank" rel="noopener noreferrer" class="work__button">
+            View Website <i class='bx bx-right-arrow work__icon'></i>
+          </a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/QUIZ.jpeg" alt="Quiz App" class="work__img">
+          <h3 class="work__title">Quiz Web App</h3>
+          <p class="work__desc">Simple browser quiz app in vanilla JS. Real-time score.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/ecoù.jpeg" alt="E-commerce Platform" class="work__img">
+          <h3 class="work__title">E-commerce Platform</h3>
+          <p class="work__desc">E-commerce website with cart, product management & payments. Laravel.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/jwerl.jpeg" alt="Jewelry E-commerce" class="work__img">
+          <h3 class="work__title">Jewelry E-commerce</h3>
+          <p class="work__desc">Jewelry store with Instagram integration. Laravel.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/mblll.jpeg" alt="Tourism Mobile App" class="work__img">
+          <h3 class="work__title">Tourism Mobile App</h3>
+          <p class="work__desc">Tourism booking & discovery app. Flutter + Firebase.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+        <div class="work__card mix web">
+          <img src="assets/img/sy.png" alt="Syndic App" class="work__img">
+          <h3 class="work__title">Syndic Management</h3>
+          <p class="work__desc">Building management: expenses tracking, payments, and operations. Laravel + React.</p>
+          <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!--=============== TESTIMONIALS ===============-->
+    <section class="testimonials section" id="testimonials">
+      <h1 class="section__title">Client Testimonials</h1>
+
+      <div class="testimonial__container container swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <div>
+                <h3 class="testimonial__name">Mrs. Hanan Bounit</h3>
+                <span class="testimonial__role">Lawyer</span>
+              </div>
+            </div>
+            <p class="testimonial__quote">
+              Great collaboration! The website was delivered quickly, with a modern design that matched our expectations.
+              Highly recommended.
+            </p>
+            <a href="https://cabinethbavocats.com/" class="testimonial__project">Project: Cabinet HB Avocats</a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <div>
+                <h3 class="testimonial__name">Mr. Mohamed Arab</h3>
+                <span class="testimonial__role">E-commerce</span>
+              </div>
+            </div>
+            <p class="testimonial__quote">
+              Thank you so much, Aicha 🙏 The website is exactly what I wanted—I’m really happy with the result 🤩.
+              Great work and professionalism.
+            </p>
+            <a href="https://santebliss.com/" class="testimonial__project">Project: SanteBliss</a>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <img src="assets/img/WhatsApp Image 2025-08-22 at 14.07.42_4279830f.jpg" class="work__img" alt="Testimonial">
+              <div>
+                <h3 class="testimonial__name">Yassine Serrafi</h3>
+                <span class="testimonial__role">CEO — Afrilavage</span>
+              </div>
+            </div>
+            <a href="https://www.afrilavage.com/" class="testimonial__project">Project: Afrilavage</a>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <div>
+                <h3 class="testimonial__name">Ayoub Ait Ali</h3>
+              </div>
+            </div>
+            <p class="testimonial__quote">
+              Very satisfied with Aicha’s work. She delivered a website that met all our expectations.
+              She was patient, understood our needs, and was open to revisions.
+              Great collaboration—I hope to work together again on future projects.
+            </p>
+            <a href="https://bayticare.fr" class="testimonial__project">bayticare.fr</a>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <div>
+                <h3 class="testimonial__name">IchraQ (Optician)</h3>
+              </div>
+            </div>
+            <p class="testimonial__quote">
+              Big thanks to FalconDev for developing our desktop application.
+              Their expertise and responsiveness were key to meeting our needs.
+              We are very satisfied with the result and highly recommend their services.
+            </p>
+            <a href="#" class="testimonial__project">Desktop application</a>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <div>
+                <h3 class="testimonial__name">Mr. Mohammed Rezki</h3>
+              </div>
+            </div>
+            <p class="testimonial__quote">
+              Working with FalconDev was an outstanding experience.
+              Aicha perfectly understood our needs and delivered a high-quality website,
+              meeting all of our expectations.
+            </p>
+            <a href="https://arfakvoyage.com/" class="testimonial__project">arfakvoyage</a>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="testimonial__card swiper-slide">
+            <div class="testimonial__header">
+              <img src="assets/img/WhatsApp Image 2025-08-22 at 14.09.37_d919a5cf.jpg" alt="Testimonial" class="work__img">
+              <div>
+                <h3 class="testimonial__name">Mr. Noureddine Abad</h3>
+              </div>
+            </div>
+            <a href="https://ab-services.ma" class="testimonial__project">ab-services.ma</a>
+          </div>
+
+        </div>
+
+        <!-- Pagination & nav -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!--=============== SERVICES ===============-->
+    <section class="services section">
+      <span class="section__subtitle">My Services</span>
+      <h1 class="section__title">What I Offer</h1>
+
+      <div class="services__container container grid">
+
+        <!-- Card 1 -->
+        <div class="services__card">
+          <h3 class="services__title">
+            Web, Mobile <br> & SaaS Development
+          </h3>
+
+          <span class="services__button">
+            See More <i class='bx bx-right-arrow services__icon'></i>
+          </span>
+
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <i class='bx bx-x services__modal-close'></i>
+              <h3 class="services__modal-title">Web, Mobile & SaaS Development</h3>
+              <p class="services__modal-description">
+                Bring your vision to life with tailored solutions.
+              </p>
+
+              <ul class="services__modal-list">
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Tailored solutions: websites and apps built for your specific needs.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Cross-platform: smooth experiences on web and mobile.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Modern approach: integration of the latest technologies and trends.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Consultation -->
+        <div class="services__card">
+          <h3 class="services__title">Freelance & SaaS <br> 1:1 Consultations</h3>
+          <span class="services__button">
+            See More <i class='bx bx-right-arrow services__icon'></i>
+          </span>
+
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <i class='bx bx-x services__modal-close'></i>
+              <h3 class="services__modal-title">1:1 Consultations – Freelance & SaaS</h3>
+              <p class="services__modal-description">
+                Personalized sessions to structure, clarify, and accelerate your project or career.
+              </p>
+              <ul class="services__modal-list">
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Positioning & offer: clarify your value proposition.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Freelancing: pricing, client acquisition, portfolio, strategy.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    SaaS & MVP: product roadmap, tech choices, launch.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="services__card">
+          <h3 class="services__title">Full <br> Deployment Services</h3>
+          <span class="services__button">
+            See More <i class='bx bx-right-arrow services__icon'></i>
+          </span>
+
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <i class='bx bx-x services__modal-close'></i>
+              <h3 class="services__modal-title">Full Deployment Services</h3>
+              <p class="services__modal-description">
+                We support you at every step—from build to launch.
+              </p>
+              <ul class="services__modal-list">
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    End-to-end support throughout the development cycle.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Launch assistance: smooth and successful release of your website or application.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Ongoing support: maintenance and post-launch help.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="services__card">
+          <h3 class="services__title">E-commerce Store <br> Setup & Management</h3>
+          <span class="services__button">
+            See More <i class='bx bx-right-arrow services__icon'></i>
+          </span>
+
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <i class='bx bx-x services__modal-close'></i>
+              <h3 class="services__modal-title">E-commerce Store Setup & Management</h3>
+              <p class="services__modal-description">
+                From product management to payment integration and inventory control—we handle everything.
+              </p>
+              <ul class="services__modal-list">
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    All-in-one setup: turnkey solutions for your online store.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Payment integration: secure and fast transactions.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Inventory management: easy product tracking and control.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="services__card">
+          <h3 class="services__title">Growth Marketing <br> & Digital Visibility</h3>
+
+          <span class="services__button">
+            See More <i class='bx bx-right-arrow services__icon'></i>
+          </span>
+
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <i class='bx bx-x services__modal-close'></i>
+              <h3 class="services__modal-title">Digital Marketing Services</h3>
+              <p class="services__modal-description">
+                Grow your online presence and audience with smart digital strategies and creative content.
+              </p>
+              <ul class="services__modal-list">
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Social media strategy: optimize platforms like Instagram and TikTok.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Content creation: visuals and messaging aligned with your brand goals (posts, reels, etc.).
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    SEO & web visibility: improve ranking with optimized content and structure.
+                  </p>
+                </li>
+                <li class="services__modal-item">
+                  <i class='bx bx-check-circle'></i>
+                  <p class="services__modal-info">
+                    Campaign support: email marketing, launches, lead generation.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--=============== CONTACT ===============-->
+    <section class="contact section" id="contact">
+      <h1 class="section__title">Contact Me</h1>
+
+      <div class="contact__container container grid">
+
+        <div class="contact__content">
+          <h3 class="contact__title contact__title-info">My Info</h3>
+
+          <div class="contact__info">
+            <div class="contact__card">
+              <i class='bx bx-mail-send contact__card-icon'></i>
+              <h3 class="contact__card-title">Email</h3>
+              <span class="contact__card-data">njimateaicha@gmail.com</span>
+              <a href="mailto:njimateaicha@gmail.com" target="_blank" class="contact__button">
+                Message <i class='bx bx-right-arrow contact__button-icon'></i>
+              </a>
+            </div>
+
+            <div class="contact__card">
+              <i class='bx bxl-whatsapp contact__card-icon'></i>
+              <h3 class="contact__card-title">WhatsApp</h3>
+              <span class="contact__card-data">+212 601-927552</span>
+              <span class="contact__card-data">+212 621-309024</span>
+              <a href="https://api.whatsapp.com/send?phone=+212621309024&text=Hi!" target="_blank" class="contact__button">
+                Message <i class='bx bx-right-arrow contact__button-icon'></i>
+              </a>
+            </div>
+
+            <div class="contact__card">
+              <i class='bx bxl-instagram footer__social-icon'></i>
+              <h3 class="contact__card-title">Instagram</h3>
+              <span class="contact__card-data">njimate_aicha</span>
+              <a href="https://www.instagram.com/njimate_aicha/" target="_blank" class="contact__button">
+                Message <i class='bx bx-right-arrow contact__button-icon'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__content">
+          <h3 class="contact__title contact__title-form">Send me a Message</h3>
+          <form id="contact-form" class="contact__form">
+            <div class="contact__form-div">
+              <label for="name" class="contact__form-tag">Name</label>
+              <input type="text" id="name" placeholder="Enter your name" class="contact__form-input" required>
+            </div>
+
+            <div class="contact__form-div">
+              <label for="email" class="contact__form-tag">Email</label>
+              <input type="email" id="email" placeholder="Enter your email" class="contact__form-input" required>
+            </div>
+
+            <div class="contact__form-div contact__form-area">
+              <label for="message" class="contact__form-tag">Message</label>
+              <textarea id="message" cols="30" rows="10" placeholder="Write your message" class="contact__form-input"
+                required></textarea>
+            </div>
+
+            <button type="submit" class="button">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--=============== FOOTER ===============-->
+  <footer class="footer">
+    <div class="footer__container container">
+      <h1 class="footer__title">Njimate Aicha</h1>
+
+      <ul class="footer__list">
+        <li class="footer__item"><a href="#" class="footer__link">Home</a></li>
+        <li class="footer__item"><a href="#about" class="footer__link">About</a></li>
+        <li class="footer__item"><a href="#skills" class="footer__link">Skills</a></li>
+        <li class="footer__item"><a href="#work" class="footer__link">Work</a></li>
+        <li class="footer__item"><a href="#contact" class="footer__link">Contact</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li class="footer__social-item">
+          <a href="https://web.facebook.com/Aichakettani.50" target="_blank" class="footer__social-link">
+            <i class='bx bxl-facebook footer__social-icon'></i>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a href="https://www.linkedin.com/in/aicha-njimate-846aa5245/" target="_blank" class="footer__social-link">
+            <i class='bx bxl-twitter footer__social-icon'></i>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a href="https://www.linkedin.com/in/aicha-njimate-846aa5245/" target="_blank" class="footer__social-link">
+            <i class='bx bxl-linkedin footer__social-icon'></i>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a href="https://www.instagram.com/falcondeev" target="_blank" class="footer__social-link">
+            <i class='bx bxl-instagram footer__social-icon'></i>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a href="https://www.youtube.com/@njimate_aicha" target="_blank" class="footer__social-link">
+            <i class='bx bxl-youtube footer__social-icon'></i>
+          </a>
+        </li>
+      </ul>
+
+      <span class="footer__copy">
+        &#169; 2025 Njimate AICHA
+      </span>
+    </div>
+  </footer>
+
+  <!--=============== SCROLLREVEAL ===============-->
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+  <!--=============== SWIPER JS ===============-->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+
+  <!--=============== MIXITUP FILTER ===============-->
+  <script src="assets/js/mixitup.min.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Destroy existing instance to avoid duplicates
+    if (window.testimonialSwiper && typeof window.testimonialSwiper.destroy === 'function') {
+      window.testimonialSwiper.destroy(true, true);
+    }
+
+    window.testimonialSwiper = new Swiper('.testimonial__container', {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 24,
+      slidesPerView: 1,
+      pagination: {
+        el: '.testimonial__container .swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.testimonial__container .swiper-button-next',
+        prevEl: '.testimonial__container .swiper-button-prev',
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 2 } // you can set 3 if you want
+      }
+    });
+  </script>
+
+</body>
+
+</html>
