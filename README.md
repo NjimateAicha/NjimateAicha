@@ -1,16 +1,13 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/NjimateAicha/NjimateAicha/main/assets/profile.jpg"
-     width="180"
-     style="border-radius: 50%;" />
+# 👋 Hi, I’m **Njimate Aicha**
 
-# 👋 Hi there, I'm Aicha Njimate
-
-**Full-Stack Developer | Laravel • React • Flutter**
+### Web, Mobile & SaaS Developer  
+### Founder of **FalconDeev** • 1:1 Freelance Consultations • Tech Speaker
 
 📍 Based in Morocco  
-🚀 I build web & mobile apps + business websites  
-🎯 Available for freelance projects
+🚀 Turning ideas into **high-performing digital solutions**  
+🎯 Helping founders, startups & SMEs launch, structure and scale
 
 <a href="https://www.youtube.com/@AichaNjimate" target="_blank">YouTube</a> •
 <a href="https://github.com/NjimateAicha" target="_blank">GitHub</a> •
@@ -21,23 +18,79 @@
 
 ---
 
-## 🧰 Tech Stack
+## 💡 What I Do
 
-**Frontend:** React, HTML, CSS, JavaScript, Bootstrap  
-**Backend:** Laravel, Node.js  
-**Mobile:** Flutter  
-**Database:** MySQL, PostgreSQL  
-**Tools:** Git, Postman, Jira, Scrum
+I help entrepreneurs, brands, and businesses transform their ideas into **modern websites, mobile applications, and SaaS platforms**.
+
+Through **FalconDeev**, I support:
+- Startups & founders
+- Law firms
+- E-commerce businesses
+- SMEs & personal brands  
+
+I also provide **1:1 freelance consultations** (positioning, offers, pricing, client acquisition, tech career) and regularly **speak at tech schools & events**.
+
+---
+
+## 🧠 Consulting & Business
+
+- 1:1 Freelance Consultations — **Advanced**
+- Positioning & Offers — **Advanced**
+- Pricing & Packages — **Advanced**
+- Client Acquisition (DM / Outreach) — **Advanced**
+- SaaS & MVP Strategy — **Advanced**
+- Product Roadmap / MVP — **Intermediate**
+
+---
+
+## 🎨 Frontend Development
+
+- HTML — **Advanced**
+- CSS / Bootstrap — **Advanced**
+- JavaScript — **Advanced**
+- Angular — **Intermediate**
+- Flutter — **Advanced**
+- Git — **Advanced**
+
+---
+
+## ⚙️ Backend Development
+
+- Laravel — **Advanced**
+- Django — **Advanced**
+- Python — **Advanced**
+- MySQL — **Advanced**
+- Firebase — **Advanced**
+- Java — **Intermediate**
+
+---
+
+## 📈 Growth & Digital Marketing
+
+- Marketing Strategy — **Advanced**
+- Funnels & Conversion — **Advanced**
+- SEO & Content — **Advanced**
+- Paid Ads (Meta / Google) — **Intermediate**
+- Email Automation — **Intermediate**
+- Product Growth — **Advanced**
 
 ---
 
 ## 🌟 Highlighted Projects
-- **DivinDeep** — psychometric SaaS (Laravel + React)
-- **Samsar Smart** — real estate marketplace (Laravel + Flutter)
-- **Cameo Cinema** — ticketing + QR system (WordPress + WooCommerce)
+
+- **DivinDeep** — Psychometric SaaS platform (Laravel + React)
+- **Samsar Smart** — Real estate marketplace (Laravel + Flutter)
+- **Cameo Cinema** — Online ticketing & QR access system (WordPress + WooCommerce)
 
 ---
 
-## 📫 Contact
-- Email: yourmail@gmail.com  
-- Calendly: https://calendly.com/njimateaicha/new-meeting
+## 📫 Contact & Links
+
+- 🌐 Website: https://aichanjimate.com  
+- 📅 Book a call: [https://calendly.com/njimateaicha/new-meeting  ](https://calendly.com/njimateaicha/new-meeting)
+- 📺 YouTube: https://www.youtube.com/@AichaNjimate  
+
+---
+
+> *Building digital products is not just about code — it’s about strategy, clarity, and execution.*
+
