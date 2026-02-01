@@ -74,13 +74,6 @@ I also provide **1:1 freelance consultations** (positioning, offers, pricing, cl
 - Email Automation — **Intermediate**
 - Product Growth — **Advanced**
 
----
-
-## 🌟 Highlighted Projects
-
-- **DivinDeep** — Psychometric SaaS platform (Laravel + React)
-- **Samsar Smart** — Real estate marketplace (Laravel + Flutter)
-- **Cameo Cinema** — Online ticketing & QR access system (WordPress + WooCommerce)
 
 ---
 
