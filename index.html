@@ -105,7 +105,174 @@
 
 .lang-sep{ opacity:.4; }
 
+/*=============== STRUCTURE DES PROJETS (4 PAR LIGNE) ===============*/
+/* Ces règles écrasent celles de styles.css car elles arrivent après */
+.work .container{
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
 
+.work__container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  justify-content: initial;
+}
+
+@media (max-width: 1100px){
+  .work__container{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 850px){
+  .work__container{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px){
+  .work__container{ grid-template-columns: 1fr; }
+}
+
+/* Cartes plus compactes pour tenir à 4 par ligne */
+.work__card{
+  padding: .85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.work__title{
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.work__desc{
+  font-size: var(--smaller-font-size);
+  flex: 1;
+  margin-bottom: .5rem;
+}
+
+.work__button{
+  margin-top: auto;
+}
+
+/* Titre de catégorie (occupe toute la largeur de la grille) */
+.work__category{
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 1.5rem;
+  margin-bottom: .25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.work__category:first-child{ margin-top: 0; }
+
+.work__category i{
+  font-size: 1.4rem;
+  color: #8b5cf6;
+}
+
+.work__category::after{
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, transparent);
+  border-radius: 2px;
+  opacity: .45;
+}
+
+/* Badges sur les cartes projets */
+.work__badge{
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 600;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  margin-left: .3rem;
+  vertical-align: middle;
+  background: rgba(139, 92, 246, .15);
+  color: #8b5cf6;
+}
+
+.work__badge--mobile{
+  background: rgba(37, 211, 102, .15);
+  color: #1ebe5d;
+}
+
+.work__badge--encours{
+  background: rgba(247, 119, 55, .15);
+  color: #F77737;
+}
+
+/* Les images de projets : taille uniforme, garde sa place pendant le chargement */
+.work__img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: rgba(139, 92, 246, .08);
+  margin-bottom: .6rem;
+}
+
+/* Étoiles dans les avis */
+.testimonial__stars{
+  color: #f6b93b;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-top: .5rem;
+  display: block;
+}
+
+/*=============== ANIMATIONS : ON GARDE LE MINIMUM ===============*/
+/* Tout le contenu est toujours visible, pas d'effet d'apparition au scroll */
+.home__data, .home__handle, .home__social, .home__scroll,
+.about__container, .skills__container, .services__card,
+.work__card, .testimonial__container, .contact__container,
+.footer__container{
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/*=============== COMPETENCES : VERSION COMPACTE ===============*/
+/* Écrase le padding énorme de styles.css (4rem 8.8rem) */
+.skills__content{
+  padding: 1.5rem 1.75rem;
+}
+
+.skills__container{
+  row-gap: 1.25rem;
+  column-gap: 1.5rem;
+}
+
+.skills__title{
+  margin-bottom: 1.25rem;
+}
+
+.skills__box{
+  column-gap: 2.5rem;
+}
+
+.skills__group{
+  row-gap: .6rem;
+}
+
+.skills__name{
+  font-size: var(--small-font-size);
+}
+
+.skills__level{
+  font-size: var(--smaller-font-size);
+}
+
+@media (min-width: 992px){
+  .skills__container{
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
     </style>
 
 </head>
@@ -182,11 +349,11 @@
                 </ul>
             </div>
             <!-- Language Switcher -->
-<div class="lang-switch">
+<!-- <div class="lang-switch">
   <a class="lang-link active" href="index.html">FR</a>
   <span class="lang-sep">|</span>
   <a class="lang-link" href="en.html">EN</a>
-</div>
+</div> -->
 
 
 
@@ -243,7 +410,7 @@
      <br>
      <br>
              <div class="home__button">
-  <a href="https://www.youtube.com/@AichaNjimate"
+  <a href="https://www.youtube.com/@AichaNjimate/videos"
      target="_blank"
      rel="noopener noreferrer"
      class="button button--ghost">
@@ -255,6 +422,12 @@
      rel="noopener noreferrer"
      class="button button--ghost">
     GitHub
+  </a>
+    <a href="https://www.linkedin.com/in/aicha-njimate/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="button button--ghost">
+    LinkedIn
   </a>
 
   <a href="https://calendly.com/njimateaicha/new-meeting"
@@ -285,7 +458,7 @@
                         <div class="about__box">
                             <i class='bx bx-briefcase-alt about__icon'></i>
                             <h3 class="about__title">Réalisés</h3>
-                            <span class="about__subtitle">20+ Projets</span>
+                            <span class="about__subtitle">25+ Projets</span>
                         </div>
                         <div class="about__box">
                             <i class='bx bx-support about__icon'></i>
@@ -321,6 +494,254 @@ et j’interviens dans des <strong>écoles & événements tech</strong> en tant 
         </section>
 
     
+
+
+
+
+        <!--=============== WORK (PROJETS — juste après les compétences) ===============-->
+       
+       <section class="work section" id="work">
+            
+  
+  <h1 class="section__title">Projets & Réalisations</h1>
+
+  <div class="work__container container">
+
+    <!--========== CATÉGORIE : SAAS & APPLICATIONS MOBILES ==========-->
+    <h2 class="work__category"><i class='bx bx-rocket'></i> SaaS & Applications Mobiles</h2>
+
+    <div class="work__card mix web">
+      <img src="assets/img/jafiz.jpeg" alt="Jafiz - Gestion des accès et du parc automobile" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Jafiz
+        <span class="work__badge">SaaS</span>
+        <span class="work__badge work__badge--mobile">App Mobile</span>
+      </h3>
+      <p class="work__desc">Plateforme SaaS de gestion des accès et du parc automobile, avec application mobile dédiée.</p>
+      <a href="https://jafiz.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/divn.jpeg" alt="DivinDeep - Deep Insight Tech" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">DivinDeep
+        <span class="work__badge">SaaS</span>
+      </h3>
+      <p class="work__desc">Plateforme SaaS de psychométrie appliquée : backend structuré, rapports et multilingue.</p>
+      <a href="https://divindeep.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix movil">
+      <img src="assets/img/IMA.png" alt="Application mobile en cours de développement" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Application Mobile
+        <span class="work__badge work__badge--encours">En cours</span>
+      </h3>
+      <p class="work__desc">Nouvelle application mobile en cours de développement. Plus de détails bientôt !</p>
+      <a href="#contact" class="work__button">Me contacter <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+       <img src="assets/img/arfk.jpeg" alt="Visa App" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Visa Reservation App</h3>
+      <p class="work__desc">Réservation de visas, upload docs, suivi. Laravel + Angular.</p>
+      <a href="https://arfakvoyage.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/mblll.jpeg" alt="Tourism App" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Tourism Mobile App
+        <span class="work__badge work__badge--mobile">App Mobile</span>
+      </h3>
+      <p class="work__desc">App de réservation et découverte touristique. Flutter + Firebase.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/sy.png" alt="Syndic App" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Syndic Management
+        <span class="work__badge">SaaS</span>
+      </h3>
+      <p class="work__desc">Suivi des charges, paiements et gestion immeuble. Laravel + React.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <!--========== CATÉGORIE : E-COMMERCE ==========-->
+    <h2 class="work__category"><i class='bx bx-cart'></i> Sites E-commerce</h2>
+
+    <!-- <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_25-6-2025_172033_santebliss.com.jpeg" alt="SanteBliss" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">SanteBliss</h3>
+      <p class="work__desc">Boutique en ligne de produits naturels avec paiement sécurisé. Laravel.</p>
+      <a href="https://santebliss.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_13-9-2025_17252_brunettefrance.com (1).jpeg" alt="Brunette France" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Brunette_france</h3>
+      <p class="work__desc">Boutique en ligne de robes pour femmes, avec paiement sécurisé.</p>
+      <a href="https://brunettefrance.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div> -->
+
+    <div class="work__card mix web">
+      <img src="assets/img/Azl.jpeg" alt="Parades Oliviers" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">AZ LabSKINPARA</h3>
+      <p class="work__desc">Site e-commerce de parapharmacie moderne avec gestion de produits.</p>
+      <a href="https://azlabskinpara.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_22-3-2026_17453_bricks-for-all.com.jpeg" alt="Bricks For All" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Bricks For All</h3>
+      <p class="work__desc">Boutique en ligne dédiée aux briques LEGO, expérience d’achat claire et ludique.</p>
+      <a href="https://bricks-for-all.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/moto.jpeg" alt="Moto Location" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Moto Location</h3>
+      <p class="work__desc">Agence de location de motos, site E-commerce professionnel et moderne.</p>
+      <a href="https://moto.aichanjimate.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/voiture.jpeg" alt="Location Voiture" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Location Voiture</h3>
+      <p class="work__desc">Agence de location de voitures, site e-commerce professionnel et moderne.</p>
+      <a href="https://locationvoiture.aichanjimate.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/jwerl.jpeg" alt="Jewelry Store" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Jewelry E-commerce</h3>
+      <p class="work__desc">Boutique en ligne de bijoux avec intégration Instagram. Laravel.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/ecoù.jpeg" alt="Ecommerce" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">E-commerce Platform</h3>
+      <p class="work__desc">Site marchand avec panier, gestion produits & paiements. Laravel.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <!--========== CATÉGORIE : SITES VITRINES & CORPORATE ==========-->
+    <h2 class="work__category"><i class='bx bx-globe'></i> Sites Vitrines & Corporate</h2>
+
+    <div class="work__card mix web">
+      <img src="assets/img/arena.jpeg" alt="Arena Immobilier" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Arena Immobilier</h3>
+      <p class="work__desc">Plateforme immobilière moderne : biens, recherche et mise en relation.</p>
+      <a href="https://arena-immo.vercel.app/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/riad.jpeg" alt="Site de 3 Riads" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Riads Collection</h3>
+      <p class="work__desc">Site personnalisé regroupant 3 riads : présentation, galerie et réservation.</p>
+      <a href="https://riad-xi.vercel.app/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_18-11-2025_12759_najiprom.ma.jpeg" alt="Najiprom" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">NajiProm</h3>
+      <p class="work__desc">Entreprise de construction & rénovation, site vitrine professionnel.</p>
+      <a href="https://najiprom.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_18-11-2025_121651_marocsol.com.jpeg" alt="Marocsol" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Marocsol</h3>
+      <p class="work__desc">Spécialiste parquet, Gerflex et revêtements à Casablanca.</p>
+      <a href="https://marocsol.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_22-3-2026_174943_www.rocksol.ma.jpeg" alt="Rocksol Maroc" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Rocksol</h3>
+      <p class="work__desc">Entreprise spécialisée en ragréage et préparation de sols au Maroc.</p>
+      <a href="https://rocksol.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/image.png" alt="Moon Interior" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Moon Interior</h3>
+      <p class="work__desc">Site vitrine premium pour une entreprise de design & aménagement intérieur.</p>
+      <a href="https://mooninterior.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/opticienc.jpeg" alt="Opticien" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Opticien</h3>
+      <p class="work__desc">Site vitrine moderne pour un opticien, avec prise de rendez-vous.</p>
+      <a href="https://opticien.aichanjimate.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/dentiste.jpeg" alt="Dentiste" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Cabinet Dentaire</h3>
+      <p class="work__desc">Site vitrine moderne pour un cabinet dentaire, avec rendez-vous en ligne.</p>
+      <a href="https://dentiste.aichanjimate.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_25-6-2025_171943_cabinethbavocats.com.jpeg" alt="Cabinet Avocats" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Cabinet HB Avocats</h3>
+      <p class="work__desc">Site vitrine juridique bilingue avec espace consultation. Laravel.</p>
+      <a href="https://cabinethbavocats.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Capture d’écran_25-6-2025_172011_www.afrilavage.com.jpeg" alt="Afrilavage" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Afrilavage</h3>
+      <p class="work__desc">Service pressing & lavage auto, réservation avec calcul dynamique.</p>
+      <a href="https://www.afrilavage.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/Screenshot 2025-09-08 135113.png" alt="Ab-Services" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Ab-Services</h3>
+      <p class="work__desc">Conception d’un site vitrine moderne pour la mise en avant des produits.</p>
+      <a href="https://www.ab-services.ma/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/siteflc.jpeg" alt="FalconDev" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">FalconDev Portfolio</h3>
+      <p class="work__desc">Site de présentation de services freelance. React.</p>
+      <a href="https://falcondeev.com/" class="work__button" target="_blank" rel="noopener noreferrer">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <!--========== CATÉGORIE : AUTRES PROJETS (GITHUB) ==========-->
+    <h2 class="work__category"><i class='bx bxl-github'></i> Autres Projets & Open Source</h2>
+
+    <div class="work__card mix web">
+      <img src="assets/img/rcc.jpeg" alt="Face Recognition" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Face Recognition App</h3>
+      <p class="work__desc">Gestion de présence par reconnaissance faciale. Python + OpenCV.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/cmd.jpeg" alt="Commande interne" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Internal Order System</h3>
+      <p class="work__desc">Gestion des commandes et factures internes, export PDF. Laravel + React.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix movil">
+      <img src="assets/img/des.jpeg" alt="College Management" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">College Management</h3>
+      <p class="work__desc">Application Java Swing pour gérer étudiants, notes, enseignants.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+    <div class="work__card mix web">
+      <img src="assets/img/QUIZ.jpeg" alt="Quiz App" class="work__img" loading="lazy" decoding="async">
+      <h3 class="work__title">Quiz Web App</h3>
+      <p class="work__desc">Appli de quiz côté navigateur en JS pur. Score en temps réel.</p>
+      <a href="https://github.com/NjimateAicha" class="work__button" target="_blank" rel="noopener noreferrer">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
+    </div>
+
+  </div>
+</section>
 <section class="skills section" id="skills">
     <!-- <span class="section__subtitle">Mes Compétences</span> -->
    <h1 class="section__title">Mes Compétences</h1>
@@ -388,7 +809,7 @@ et j’interviens dans des <strong>écoles & événements tech</strong> en tant 
 
 
         <div class="skills__content">
-            <h3 class="skills__title">Développement Frontend</h3>
+            <h3 class="skills__title">Frontend & Mobile</h3>
             <div class="skills__box">
                 <div class="skills__group">
                     <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">HTML</h3><span class="skills__level">Avancé</span></div></div>
@@ -396,6 +817,7 @@ et j’interviens dans des <strong>écoles & événements tech</strong> en tant 
                     <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">JavaScript</h3><span class="skills__level">Avancé</span></div></div>
                 </div>
                 <div class="skills__group">
+                    <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">React</h3><span class="skills__level">Avancé</span></div></div>
                     <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Angular</h3><span class="skills__level">Intermédiaire</span></div></div>
                     <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Flutter</h3><span class="skills__level">Avancé</span></div></div>
                     <div class="skills__data"><i class='bx bxs-badge-check'></i><div><h3 class="skills__name">Git</h3><span class="skills__level">Avancé</span></div></div>
@@ -419,9 +841,6 @@ et j’interviens dans des <strong>écoles & événements tech</strong> en tant 
                 </div>
             </div>
         </div>
-
-        <!-- Services SAP -->
-      <!-- Consulting & Business -->
 
         <!-- Marketing Digital -->
    <div class="skills__content">
@@ -487,332 +906,6 @@ et j’interviens dans des <strong>écoles & événements tech</strong> en tant 
     </div>
 </section>
 
-
-
-        <!--=============== WORK ===============-->
-       
-       <section class="work section" id="work">
-            
-  
-  <h1 class="section__title">Projets & Réalisations</h1>
-
-  <!-- <div class="work__filters">
-    <span class="work__item active-work" data-filter="all">Tous les Projets</span>
-  </div> -->
-
-  <!-- <div class="work__container container grid"> -->
-    <div class="work__container container grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-
-
-    <!-- Exemple pour chaque projet -->
-
-
-<div class="work__card mix web">
-  <img src="assets/img/moto.jpeg" alt="Moto Location" class="work__img">
-  <h3 class="work__title">Moto Location</h3>
-  <p class="work__desc">Agence de location de motos, site E-commerce professionnel et moderne.</p>
-  <a href="https://moto.aichanjimate.com/" class="work__button" target="_blank">Voir le site</a>
-</div>
-<div class="work__card mix web">
-  <img src="assets/img/voiture.jpeg" alt="Location Voiture" class="work__img">
-  <h3 class="work__title">Location Voiture</h3>
-  <p class="work__desc">Agence de location de voitures, site e-commerce professionnel et moderne.</p>
-  <a href="https://locationvoiture.aichanjimate.com/" class="work__button" target="_blank">Voir le site</a>
-</div>
-           <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_18-11-2025_12759_najiprom.ma.jpeg" alt="Najiprom" class="work__img">
-      <h3 class="work__title">NajiProm</h3>
-      <p class="work__desc">Entreprise de construction & rénovation, site vitrine professionnel.</p>
-      <a href="https://najiprom.ma/" class="work__button">Voir le site</a>
-    </div>
-    <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_18-11-2025_121651_marocsol.com.jpeg" alt="Marocsol" class="work__img">
-      <h3 class="work__title">Marocsol</h3>
-      <p class="work__desc">Spécialiste parquet, Gerflex et revêtements à Casablanca.</p>
-      <a href="https://marocsol.com/" class="work__button">Voir le site</a>
-    </div>
-    <div class="work__card mix web">
-  <img src="assets/img/opticienc.jpeg" alt="Opticien" class="work__img">
-  <h3 class="work__title">Opticien</h3>
-  <p class="work__desc">Site vitrine moderne pour un opticien, avec présentation des produits et prise de rendez-vous.</p>
-  <a href="https://opticien.aichanjimate.com/" class="work__button" target="_blank">Voir le site</a>
-</div>
-<div class="work__card mix web">
-  <img src="assets/img/dentiste.jpeg" alt="Dentiste" class="work__img">
-  <h3 class="work__title">Cabinet Dentaire</h3>
-  <p class="work__desc">Site vitrine moderne pour un cabinet dentaire, avec présentation des soins et prise de rendez-vous en ligne.</p>
-  <a href="https://dentiste.aichanjimate.com/" class="work__button" target="_blank">Voir le site</a>
-</div>
-    <div class="work__card mix web">
-  <img src="assets/img/Capture d’écran_22-3-2026_17453_bricks-for-all.com.jpeg" alt="Bricks For All" class="work__img">
-  <h3 class="work__title">Bricks For All</h3>
-  <p class="work__desc">Site Web avec  la Boutique en ligne dédiée aux briques LEGO avec une expérience d’achat claire, ludique et moderne.</p>
-  <a href="https://bricks-for-all.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-</div>
-<div class="work__card mix web">
-  <img src="assets/img/Capture d’écran_22-3-2026_174943_www.rocksol.ma.jpeg" alt="Rocksol Maroc" class="work__img">
-  <h3 class="work__title">Rocksol</h3>
-  <p class="work__desc">Entreprise spécialisée en ragréage et préparation de sols au Maroc, offrant des solutions durables et de haute qualité.</p>
-  <a href="https://rocksol.ma/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-</div>
-    <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_18-11-2025_121913_paradesoliviers.com.jpeg" alt="Parades Oliviers" class="work__img">
-      <h3 class="work__title">ParadesOliviers</h3>
-       <p class="work__desc">Site e-commerce de parapharmacie moderne avec gestion de produits.</p>
-  <a href="https://paradesoliviers.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-</div>
-
-  
- <div class="work__card mix web">
-      <img src="assets/img/Screenshot 2025-09-08 135113.png" alt="Afrilavage" class="work__img">
-      <h3 class="work__title">Ab-Services</h3>
-     
-     <p class="work__desc">Conception d’un site vitrine moderne pour la mise en avant des produits.</p>
-
-      <a href="https://www.ab-services.ma/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-    <div class="work__card mix web">
-      <img src="assets/img/siteflc.jpeg" alt="FalconDev" class="work__img">
-      <h3 class="work__title">FalconDev Portfolio</h3>
-      <p class="work__desc">Site  de présentation de services freelance. React.</p>
-      <a href="https://falcondeev.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_25-6-2025_172033_santebliss.com.jpeg" alt="SanteBliss" class="work__img">
-      <h3 class="work__title">SanteBliss</h3>
-      <p class="work__desc">Boutique en ligne de produits naturels avec paiement sécurisé. Laravel.</p>
-      <a href="https://santebliss.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-         <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_13-9-2025_17252_brunettefrance.com (1).jpeg" alt="SanteBliss" class="work__img">
-      <h3 class="work__title">Brunette_france</h3>
-      <p class="work__desc">
-        Boutique en ligne spécialisée dans les robes pour femmes, avec système de paiement sécurisé.<br>
-
-  </p>
-      <a href="https://brunettefrance.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-    <div class="work__card mix web">
-       <img src="assets/img/arfk.jpeg" alt="Visa App" class="work__img">
-      <h3 class="work__title">Visa Reservation App</h3>
-      <p class="work__desc">Réservation de visas, upload docs, suivi. Laravel + Angular.</p>
-      <a href="https://arfakvoyage.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-      <img src="assets/img/cmd.jpeg" alt="Commande interne" class="work__img">
-      <h3 class="work__title">Internal Order System</h3>
-      <p class="work__desc">Gestion des commandes et factures internes, export PDF. Laravel + React.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-    <div class="work__card mix web">
-    <img src="assets/img/rcc.jpeg" alt="Face Recognition" class="work__img">
-      <h3 class="work__title">Face Recognition App</h3>
-      <p class="work__desc">Systeme de gestion de présence basé sur la reconnaissance faciale. Python + OpenCV.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-    
-       <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_25-6-2025_171943_cabinethbavocats.com.jpeg" alt="Cabinet Avocats" class="work__img">
-      <h3 class="work__title">Cabinet HB Avocats</h3>
-      <p class="work__desc">Site vitrine juridique bilingue avec espace consultation. Laravel.</p>
-      <a href="https://cabinethbavocats.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-      <img src="assets/img/Capture d’écran_25-6-2025_172011_www.afrilavage.com.jpeg" alt="Afrilavage" class="work__img">
-      <h3 class="work__title">Afrilavage</h3>
-      <p class="work__desc">Service pressing & lavage auto, réservation avec calcul dynamique.</p>
-      <a href="https://www.afrilavage.com/" class="work__button">Voir le site <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix movil">
-     <img src="assets/img/des.jpeg" alt="College Management" class="work__img">
-      <h3 class="work__title">College Management Desktop</h3>
-      <p class="work__desc">Application Java Swing pour gérer les étudiants, notes, enseignants.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-<div class="work__card mix web">
-  <img src="assets/img/image.png" alt="Moon Interior" class="work__img">
-
-  <h3 class="work__title">Moon Interior</h3>
-
-  <p class="work__desc">
-    Site vitrine premium pour une entreprise de design & aménagement intérieur. 
-    
-  </p>
-
-  <a href="https://mooninterior.ma/" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     class="work__button">
-     Voir le site <i class='bx bx-right-arrow work__icon'></i>
-  </a>
-</div>
-    <div class="work__card mix web">
-  <img src="assets/img/QUIZ.jpeg" alt="Quiz App" class="work__img">
-      <h3 class="work__title">Quiz Web App</h3>
-      <p class="work__desc">Appli simple de quiz côté navigateur en JS pur. Score en temps réel.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-         <img src="assets/img/ecoù.jpeg" alt="Ecommerce" class="work__img">
-      <h3 class="work__title">E-commerce Platform</h3>
-      <p class="work__desc">Site marchand avec panier, gestion produits & paiements. Laravel.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-    <img src="assets/img/jwerl.jpeg" alt="Jewelry Store" class="work__img">
-      <h3 class="work__title">Jewelry E-commerce</h3>
-      <p class="work__desc">Boutique en ligne de bijoux avec intégration Instagram. Laravel.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-      <img src="assets/img/mblll.jpeg" alt="Tourism App" class="work__img">
-      <h3 class="work__title">Tourism Mobile App</h3>
-      <p class="work__desc">App de réservation et découverte touristique. Flutter + Firebase.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-
-    <div class="work__card mix web">
-   <img src="assets/img/sy.png" alt="Syndic App" class="work__img">
-      <h3 class="work__title">Syndic Management</h3>
-      <p class="work__desc">Suivi des charges, paiements et gestion immeuble. Laravel + React.</p>
-      <a href="https://github.com/NjimateAicha" class="work__button">GitHub <i class='bx bx-right-arrow work__icon'></i></a>
-    </div>
-    
-
-
-
-    
-
- 
-
-  </div>
-</section>
-<!--=============== TESTIMONIALS ===============-->
-<section class="testimonials section" id="testimonials">
-
-  <h1 class="section__title">Avis  de mes Clients</h1>
-
-  <div class="testimonial__container container swiper">
-    <div class="swiper-wrapper">
-
-      <!-- Slide 1 -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <div>
-            <h3 class="testimonial__name">Madame Hanan Bounit</h3>
-            <span class="testimonial__role">Avocate</span>
-          </div>
-        </div>
-        <p class="testimonial__quote">
-          Excellente collaboration ! Site livré rapidement, design moderne et conforme à nos attentes. Je recommande à 100 %.
-        </p>
-        <a href="https://cabinethbavocats.com/" class="testimonial__project">Projet : Cabinet HB Avocats</a>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <!-- image retirée -->
-          <div>
-            <h3 class="testimonial__name">Monsieur Mohamed Arab</h3>
-            <span class="testimonial__role">E‑commerce</span>
-          </div>
-        </div>
-        <p class="testimonial__quote">
-    Merci beaucoup Aïcha 🙏
-Le site est exactement comme je voulais, je suis très content du résultat 🤩.
-Bravo pour ton travail et ton professionnalisme 
-        </p>
-        <a href="https://santebliss.com/" class="testimonial__project">Projet : SanteBliss</a>
-      </div>
-
-      <!-- Slide 3 (image WhatsApp conservée + grande) -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-
-                <img src="assets/img/WhatsApp Image 2025-08-22 at 14.07.42_4279830f.jpg"
-                    class="work__img">
-          <div>
-            <h3 class="testimonial__name">Yassine Serrafi</h3>
-            <span class="testimonial__role">CEO — Afrilavage</span>
-          </div>
-        </div>
-        
-        <a href="https://www.afrilavage.com/" class="testimonial__project">Projet : Afrilavage</a>
-      </div>
-
-      <!-- Slide 4 -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <div>
-            <h3 class="testimonial__name">Ayoub Ait Ali</h3>
-          </div>
-        </div>
-        <p class="testimonial__quote">
-          Satisfait du travail d'Aicha, qui a créé un site web conforme à toutes nos attentes.
-          Elle a fait preuve de grande patience, a bien compris nos besoins et a été ouverte à toutes les révisions.
-          Une collaboration agréable, et j'espère continuer à travailler avec elle sur de futurs projets.
-        </p>
-        <a href="https://bayticare.fr" class="testimonial__project">bayticare.fr</a>
-      </div>
-
-      <!-- Slide 5 -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <div>
-            <h3 class="testimonial__name">IchraQ Opticienne</h3>
-          </div>
-        </div>
-        <p class="testimonial__quote">
-          Un grand merci à FalconDev pour le développement de notre application desktop.
-          Leur expertise et réactivité ont été essentielles pour répondre à nos besoins.
-          Nous sommes très satisfaits du résultat et recommandons vivement leurs services.
-        </p>
-        <a href="#" class="testimonial__project">Application desktop</a>
-      </div>
-
-      <!-- Slide 6 -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <div>
-            <h3 class="testimonial__name">Monsieur Mohammed Rezki</h3>
-          </div>
-        </div>
-        <p class="testimonial__quote">
-          Travailler avec FalconDev a été une expérience exceptionnelle.
-          Aicha a parfaitement compris nos besoins et livré un site web de grande qualité,
-          répondant à toutes nos attentes.
-        </p>
-        <a href="https://arfakvoyage.com/" class="testimonial__project">arfakvoyage</a>
-      </div>
-
-      <!-- Slide 7 (image WhatsApp conservée + grande) -->
-      <div class="testimonial__card swiper-slide">
-        <div class="testimonial__header">
-          <img src="assets/img/WhatsApp Image 2025-08-22 at 14.09.37_d919a5cf.jpg"  alt="Afrilavage" class="work__img">
-          <div>
-            <h3 class="testimonial__name">Monsieur Noureddine Abad</h3>
-          </div>
-        </div>
-        <a href="https://ab-services.ma" class="testimonial__project">ab-services.ma</a>
-      </div>
-
-    </div>
-
-    <!-- Pagination & nav -->
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</section>
-<!--=============== SERVICES ===============-->
 <!--=============== SERVICES ===============-->
 <section class="services section">
   <span class="section__subtitle">Mes Services</span>
@@ -836,7 +929,6 @@ Développement Web, Mobile <br> & SaaS
           <p class="services__modal-description">
             Donnez vie à votre vision avec des solutions personnalisées.
           </p>
-    >
 
           <ul class="services__modal-list">
             <li class="services__modal-item">
@@ -1023,6 +1115,210 @@ Développement Web, Mobile <br> & SaaS
 </section>
 
 
+<!--=============== INTERVENTIONS & TALKS ===============-->
+<section class="talks section" id="talks">
+  <span class="section__subtitle">Tech Speaker</span>
+  <h1 class="section__title">Interventions & Talks</h1>
+ 
+  <div class="talks__container container">
+ 
+    <!-- ENSA Khouribga -->
+    <div class="talks__card">
+      <div class="talks__photo">
+        <img src="assets/img/ensa.webp" alt="Intervention à l'ENSA Khouribga" loading="lazy" decoding="async">
+        <span class="talks__type"><i class='bx bx-building-house'></i> École d'ingénieurs</span>
+        <h3 class="talks__name">ENSA Khouribga</h3>
+      </div>
+      <div class="talks__body">
+        <p class="talks__desc">
+          Talk sur scène devant les étudiants ingénieurs lors de l'événement CODEX de l'ENSA Khouribga.
+        </p>
+        <span class="talks__topic"><i class='bx bx-microphone'></i> Freelance vs Emploi</span>
+      </div>
+    </div>
+ 
+    <!-- Mundiapolis -->
+    <div class="talks__card">
+      <div class="talks__photo">
+        <img src="assets/img/mond.jpg" alt="Talk à l'Université Mundiapolis Casablanca" loading="lazy" decoding="async">
+        <span class="talks__type"><i class='bx bx-building-house'></i> Casablanca</span>
+        <h3 class="talks__name">Université Mundiapolis</h3>
+      </div>
+      <div class="talks__body">
+        <p class="talks__desc">
+          Intervention à l'Université Mundiapolis de Casablanca : le parcours d'une développeuse entrepreneure.
+        </p>
+        <span class="talks__topic"><i class='bx bx-microphone'></i> Carrière Tech & Entrepreneuriat</span>
+      </div>
+    </div>
+ 
+    <!-- BlaBla Conf -->
+    <div class="talks__card">
+      <div class="talks__photo talks__photo--poster">
+        <img src="assets/img/blablaconf.jpg" alt="Talk d'Aicha Njimate à la BlaBla Conf : Freelance vs Emploi" loading="lazy" decoding="async">
+        <span class="talks__type"><i class='bx bx-broadcast'></i> Conférence Tech</span>
+        <h3 class="talks__name">BlaBla Conf Geeks BLABLA</h3>
+      </div>
+      <div class="talks__body">
+        <p class="talks__desc">
+          Speaker à la BlaBla Conf, la grande conférence tech marocaine en ligne, devant la communauté des développeurs.
+        </p>
+        <span class="talks__topic"><i class='bx bx-microphone'></i> Freelance vs Emploi : vérité terrain</span>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+<!--=============== TESTIMONIALS (juste avant le contact = preuve sociale) ===============-->
+<section class="testimonials section" id="testimonials">
+
+  <h1 class="section__title">Avis  de mes Clients</h1>
+
+  <div class="testimonial__container container swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide : Jafiz -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">Mr.Hamza Elouazzani</h3>
+            <span class="testimonial__role">SaaS — Gestion des accès & parc automobile</span>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          J’ai travaillé avec Aicha sur mon projet tech et ça s’est vraiment super bien passé. Elle est très adaptable, elle comprend vite les besoins et sait s’ajuster facilement quand les choses évoluent en cours de route. Elle est aussi très réactive, toujours dispo pour répondre ou débloquer une situation rapidement. En plus de ça, la communication est simple et fluide. Je recommande sans hésiter.
+        </p>
+        <span class="testimonial__stars">★★★★★</span>
+        <a href="https://jafiz.ma/" class="testimonial__project" target="_blank" rel="noopener noreferrer">Projet : Jafiz.ma</a>
+      </div>
+
+      <!-- Slide : DivinDeep / Mme Nadia Mghari -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">Mme Nadia Mghari</h3>
+            <span class="testimonial__role">Fondatrice — DivinDeep | Psychométrie appliquée</span>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          Aicha s’est distinguée par son sérieux, sa réactivité et sa capacité à transformer des besoins complexes en solutions techniques concrètes. J’ai particulièrement apprécié son implication dans les aspects backend, la structuration technique, la génération de rapports et l’intégration multilingue. Je recommande Aicha pour tout projet nécessitant une développeuse sérieuse, autonome et rigoureuse, capable d’accompagner une vision produit avec pragmatisme.
+        </p>
+        <span class="testimonial__stars">★★★★★</span>
+        <a href="https://divindeep.com/" class="testimonial__project" target="_blank" rel="noopener noreferrer">Projet : DivinDeep.com</a>
+      </div>
+
+      <!-- Slide 1 -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">Madame Hanan Bounit</h3>
+            <span class="testimonial__role">Avocate</span>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          Excellente collaboration ! Site livré rapidement, design moderne et conforme à nos attentes. Je recommande à 100 %.
+        </p>
+        <a href="https://cabinethbavocats.com/" class="testimonial__project">Projet : Cabinet HB Avocats</a>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <!-- image retirée -->
+          <div>
+            <h3 class="testimonial__name">Monsieur Mohamed Arab</h3>
+            <span class="testimonial__role">E‑commerce</span>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+    Merci beaucoup Aïcha 🙏
+Le site est exactement comme je voulais, je suis très content du résultat 🤩.
+Bravo pour ton travail et ton professionnalisme 
+        </p>
+        <a href="https://santebliss.com/" class="testimonial__project">Projet : SanteBliss</a>
+      </div>
+
+      <!-- Slide 3 (image WhatsApp conservée + grande) -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+
+                <img src="assets/img/WhatsApp Image 2025-08-22 at 14.07.42_4279830f.jpg"
+                    class="testimonial__img--large" loading="lazy" decoding="async">
+          <div>
+            <h3 class="testimonial__name">Yassine Serrafi</h3>
+            <span class="testimonial__role">CEO — Afrilavage</span>
+          </div>
+        </div>
+        
+        <a href="https://www.afrilavage.com/" class="testimonial__project">Projet : Afrilavage</a>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">Ayoub Ait Ali</h3>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          Satisfait du travail d'Aicha, qui a créé un site web conforme à toutes nos attentes.
+          Elle a fait preuve de grande patience, a bien compris nos besoins et a été ouverte à toutes les révisions.
+          Une collaboration agréable, et j'espère continuer à travailler avec elle sur de futurs projets.
+        </p>
+        <a href="https://bayticare.fr" class="testimonial__project">bayticare.fr</a>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">IchraQ Opticienne</h3>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          Un grand merci à FalconDev pour le développement de notre application desktop.
+          Leur expertise et réactivité ont été essentielles pour répondre à nos besoins.
+          Nous sommes très satisfaits du résultat et recommandons vivement leurs services.
+        </p>
+        <a href="#" class="testimonial__project">Application desktop</a>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <div>
+            <h3 class="testimonial__name">Monsieur Mohammed Rezki</h3>
+          </div>
+        </div>
+        <p class="testimonial__quote">
+          Travailler avec FalconDev a été une expérience exceptionnelle.
+          Aicha a parfaitement compris nos besoins et livré un site web de grande qualité,
+          répondant à toutes nos attentes.
+        </p>
+        <a href="https://arfakvoyage.com/" class="testimonial__project">arfakvoyage</a>
+      </div>
+
+      <!-- Slide 7 (image WhatsApp conservée + grande) -->
+      <div class="testimonial__card swiper-slide">
+        <div class="testimonial__header">
+          <img src="assets/img/WhatsApp Image 2025-08-22 at 14.09.37_d919a5cf.jpg"  alt="Ab-Services" class="testimonial__img--large" loading="lazy" decoding="async">
+          <div>
+            <h3 class="testimonial__name">Monsieur Noureddine Abad</h3>
+          </div>
+        </div>
+        <a href="https://ab-services.ma" class="testimonial__project">ab-services.ma</a>
+      </div>
+
+    </div>
+
+    <!-- Pagination & nav -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+
         <!--=============== CONTACT ===============-->
       <section class="contact section" id="contact">
   
@@ -1143,10 +1439,24 @@ Développement Web, Mobile <br> & SaaS
   </div>
 </footer>
 
-    <!--=============== SCROLLREVEAL ===============-->
-
-    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
-    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <!--=============== SCROLLREVEAL (DÉSACTIVÉ) ===============-->
+    <!--
+      Les animations d'apparition au scroll sont désactivées :
+      elles ralentissaient la page et causaient du contenu invisible.
+      Ce "stub" remplace la librairie pour que main.js continue de
+      fonctionner sans erreur (thème, menu, modals, etc.).
+    -->
+    <script>
+      window.ScrollReveal = function () {
+        var stub = {
+          reveal: function () { return stub; },
+          clean: function () { return stub; },
+          sync: function () { return stub; },
+          destroy: function () { return stub; }
+        };
+        return stub;
+      };
+    </script>
 
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
@@ -1167,6 +1477,10 @@ Développement Web, Mobile <br> & SaaS
     grabCursor: true,
     spaceBetween: 24,
     slidesPerView: 1,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: '.testimonial__container .swiper-pagination',
       clickable: true,
