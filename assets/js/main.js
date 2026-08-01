@@ -135,7 +135,7 @@ if (selectedTheme) {
 
 // Activate / deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
-  // Add or remove the light / icon theme
+  // Add or reMehdi-Taxithe light / icon theme
   document.body.classList.toggle(lightTheme);
   themeButton.classList.toggle(iconTheme);
   // We save the theme and the current icon that the user chose
