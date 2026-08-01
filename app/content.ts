@@ -729,8 +729,8 @@ const WHATSAPP_MESSAGE = 'Bonjour Aicha, je souhaite discuter avec vous d’un p
 
 export const CONTACT = {
   email: 'njimateaicha@gmail.com',
-  whatsapp: ['+212 621-309024', '+212 601-927552'],
-  whatsappLink: `https://wa.me/212621309024?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+  whatsapp: ['+212 601-927552'],
+  whatsappLink: `https://wa.me/212601927552?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   instagram: '@njimate_aicha',
   instagramUrl: 'https://www.instagram.com/njimate_aicha/',
   linkedin: 'linkedin.com/in/aicha-njimate-846aa5245',

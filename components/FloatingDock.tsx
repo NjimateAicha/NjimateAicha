@@ -60,7 +60,8 @@ export default function FloatingDock() {
               aria-label="WhatsApp"
             >
               <MessageCircle size={18} strokeWidth={1.75} />
-              <span>Discuter</span>
+              <span className="floating-dock__label-full">Discuter</span>
+              <span className="floating-dock__label-short">WhatsApp</span>
             </a>
             <a
               href={CALENDLY_URL}
@@ -70,7 +71,8 @@ export default function FloatingDock() {
               aria-label="Calendly"
             >
               <Calendar size={18} strokeWidth={1.75} />
-              <span>Réserver un appel</span>
+              <span className="floating-dock__label-full">Réserver un appel</span>
+              <span className="floating-dock__label-short">Réserver</span>
             </a>
           </motion.div>
         )}
