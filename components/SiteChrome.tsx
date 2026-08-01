@@ -10,14 +10,29 @@ import ScrollProvider from './ScrollProvider';
 import SiteHeader from './SiteHeader';
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('fr');
+  const [lang, setLangState] = useState<Lang>('fr');
   const [isReviewOpen, setIsReviewOpen] = useState(false);
   const [theme, setThemeState] = useState<Theme>('dark');
 
   useEffect(() => {
     const current = document.documentElement.getAttribute('data-theme');
     if (current === 'light' || current === 'dark') setThemeState(current);
+    try {
+      const storedLang = localStorage.getItem('lang');
+      if (storedLang === 'fr' || storedLang === 'en') setLangState(storedLang);
+    } catch {
+      // ignore (private browsing / storage disabled)
+    }
   }, []);
+
+  const setLang = (next: Lang) => {
+    setLangState(next);
+    try {
+      localStorage.setItem('lang', next);
+    } catch {
+      // ignore (private browsing / storage disabled)
+    }
+  };
 
   const setTheme = (next: Theme) => {
     setThemeState(next);

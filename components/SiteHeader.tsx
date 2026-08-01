@@ -90,6 +90,13 @@ export default function SiteHeader() {
             ))}
             <div className="mobile-menu__actions">
               <button
+                className="lang-switch lang-switch--mobile"
+                onClick={() => { setLang(lang === 'fr' ? 'en' : 'fr'); closeMenu(); }}
+                aria-label="Switch language"
+              >
+                {lang === 'fr' ? 'FR / EN' : 'EN / FR'}
+              </button>
+              <button
                 className="theme-toggle theme-toggle--mobile"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 aria-label={t.themeToggleLabel}
