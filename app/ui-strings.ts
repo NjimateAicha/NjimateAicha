@@ -109,7 +109,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     reviewCta: 'Leave a review',
     talkProjectCta: 'Talk about a project',
     heroEyebrow: 'Software Engineer • SaaS & Systems Builder',
-    heroTitle: 'I build digital products that Mehdi-Taxibusinesses forward.',
+    heroTitle: 'I build digital products that move businesses forward.',
     heroLead: 'From strategy to deployment, I design web platforms, mobile apps, SaaS products and internal systems built for real business challenges.',
     heroExplore: 'Explore my projects',
     heroTalk: 'Talk about a project',

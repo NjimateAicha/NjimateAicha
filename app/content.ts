@@ -92,7 +92,8 @@ export const PROJECTS: Project[] = [
     },
     tags: ['Next.js', 'TypeScript', 'Réservation'],
     image: '/images/projects/move-up-automotive.jpeg',
-    featured: false
+    featured: false,
+    link: 'https://mehdi-taxi.com/'
   },
   {
     slug: 'riad-alia',
