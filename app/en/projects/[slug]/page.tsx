@@ -8,7 +8,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  return buildProjectMetadata(params.slug, 'fr');
+  return buildProjectMetadata(params.slug, 'en');
 }
 
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {

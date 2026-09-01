@@ -1,13 +1,13 @@
 'use client';
 
 import {
-  Activity,
   BriefcaseBusiness,
   CarFront,
-  Clapperboard,
+  HeartPulse,
   Hotel,
   LayoutDashboard,
   LucideIcon,
+  PartyPopper,
   Rocket,
   ShoppingBag
 } from 'lucide-react';
@@ -17,14 +17,14 @@ import { UI } from '../../app/ui-strings';
 import Reveal from '../motion/Reveal';
 
 const ICONS: Record<string, LucideIcon> = {
-  Hotel,
-  CarFront,
-  Activity,
   Rocket,
-  ShoppingBag,
-  LayoutDashboard,
+  Hotel,
   BriefcaseBusiness,
-  Clapperboard
+  CarFront,
+  PartyPopper,
+  HeartPulse,
+  ShoppingBag,
+  LayoutDashboard
 };
 
 export default function Niches({ lang }: { lang: Lang }) {
@@ -39,7 +39,7 @@ export default function Niches({ lang }: { lang: Lang }) {
 
       <div className="niches-grid-v2">
         {NICHES.map((niche, i) => {
-          const Icon = ICONS[niche.icon];
+          const Icon = ICONS[niche.icon] ?? Rocket;
           const content = (
             <>
               <span className="niche-card__icon"><Icon size={22} strokeWidth={1.75} /></span>

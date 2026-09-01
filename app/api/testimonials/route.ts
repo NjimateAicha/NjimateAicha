@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '../../../lib/supabaseAdmin';
+import { getSupabaseClient } from '../../../lib/supabaseClient';
 import { isRateLimited } from '../../../lib/rateLimit';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,7 +33,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid rating' }, { status: 400 });
   }
 
-  const supabase = getSupabaseAdmin();
+  // Prefer the service-role client (bypasses RLS). If SUPABASE_SERVICE_ROLE_KEY
+  // is not configured, fall back to the anon client: the `testimonials` table
+  // has an anon INSERT policy that ONLY accepts rows with status = 'pending'
+  // (see supabase/schema.sql), and no anon UPDATE/DELETE policy and no anon
+  // SELECT on non-approved rows. So the review is still saved as pending and
+  // can never be auto-published — approval stays a manual step in /admin.
+  const supabase = getSupabaseAdmin() ?? getSupabaseClient();
   if (!supabase) {
     return NextResponse.json({ error: 'Server is not configured' }, { status: 500 });
   }
@@ -51,6 +58,7 @@ export async function POST(request: NextRequest) {
   ]);
 
   if (error) {
+    console.error('[api/testimonials] insert failed:', error.message);
     return NextResponse.json({ error: 'Could not save your review' }, { status: 500 });
   }
 

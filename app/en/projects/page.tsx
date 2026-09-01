@@ -4,20 +4,20 @@ import { PROJECTS } from '../../content';
 import { alternatesFor, ogLocale, SITE_URL } from '../../i18n';
 import { breadcrumbSchema } from '../../seo';
 
-const TITLE = 'Projets SaaS, CRM & applications | Aicha Njimate';
+const TITLE = 'SaaS, CRM & Application Projects | Aicha Njimate';
 const DESCRIPTION =
-  'Découvrez les SaaS, plateformes métier, applications web et mobiles, systèmes de réservation et projets intégrant l’IA conçus et pilotés par Aicha Njimate.';
+  'Explore SaaS products, business platforms, web and mobile applications, booking systems and AI-powered projects led by Aicha Njimate.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: alternatesFor('/projects', 'fr'),
+  alternates: alternatesFor('/projects', 'en'),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: `${SITE_URL}/projects`,
+    url: `${SITE_URL}/en/projects`,
     type: 'website',
-    locale: ogLocale('fr')
+    locale: ogLocale('en')
   },
   twitter: { title: TITLE, description: DESCRIPTION }
 };
@@ -27,14 +27,14 @@ const collectionSchema = {
   '@type': 'CollectionPage',
   name: TITLE,
   description: DESCRIPTION,
-  inLanguage: 'fr',
-  url: `${SITE_URL}/projects`,
+  inLanguage: 'en',
+  url: `${SITE_URL}/en/projects`,
   isPartOf: { '@id': `${SITE_URL}/#website` },
   about: { '@id': `${SITE_URL}/#aicha-njimate` },
   hasPart: PROJECTS.map((p) => ({
     '@type': 'CreativeWork',
     name: p.title,
-    url: `${SITE_URL}/projects/${p.slug}`
+    url: `${SITE_URL}/en/projects/${p.slug}`
   }))
 };
 
@@ -51,10 +51,10 @@ export default function ProjectsPage({
           __html: JSON.stringify([
             breadcrumbSchema(
               [
-                { name: 'Accueil', frPath: '/' },
-                { name: 'Projets', frPath: '/projects' }
+                { name: 'Home', frPath: '/' },
+                { name: 'Projects', frPath: '/projects' }
               ],
-              'fr'
+              'en'
             ),
             collectionSchema
           ])

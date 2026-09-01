@@ -6,11 +6,13 @@ import { Lang } from './content';
 export type Theme = 'light' | 'dark';
 
 export interface SiteContextValue {
+  /** Language of the current route (fr on `/…`, en on `/en/…`). */
   lang: Lang;
-  setLang: (lang: Lang) => void;
   theme: Theme;
   setTheme: (theme: Theme) => void;
   openReview: () => void;
+  /** Absolute-in-app path of the same page in the other language. */
+  otherLocaleHref: string;
 }
 
 export const SiteContext = createContext<SiteContextValue | null>(null);

@@ -1,32 +1,47 @@
 'use client';
 
-import { HERO_STATS, Lang, SOLUTIONS_MARQUEE } from '../../app/content';
+import { Lang, PROJECT_MARQUEE, TRUST_FACTS } from '../../app/content';
+import { UI } from '../../app/ui-strings';
 import CountUp from '../motion/CountUp';
 import Reveal from '../motion/Reveal';
 
 export default function StatsBar({ lang }: { lang: Lang }) {
-  return (
-    <div className="hero-stats-block">
-      <Reveal as="div" className="stats-bar">
-        {HERO_STATS.map((stat) => (
-          <div key={stat.label.fr} className="stats-bar__item">
-            <strong>
-              {stat.prefix && <span className="stat-accent">{stat.prefix}</span>}
-              <CountUp value={stat.value} suffix={stat.suffix} padZero={stat.padZero} />
-            </strong>
-            <span className="stats-bar__label">{stat.label[lang]}</span>
-            {stat.caption && <span className="stats-bar__caption">{stat.caption[lang]}</span>}
-          </div>
-        ))}
-      </Reveal>
+  const t = UI[lang];
+  const marquee = [...PROJECT_MARQUEE, ...PROJECT_MARQUEE];
 
-      <Reveal delay={0.1} className="solutions-band">
-        <div className="solutions-band__track">
-          {[...SOLUTIONS_MARQUEE, ...SOLUTIONS_MARQUEE].map((item, i) => (
-            <span key={`${item.fr}-${i}`} className="solutions-band__pill">{item[lang]}</span>
+  return (
+    <section className="trust-band" aria-label={t.trustLabel}>
+      <Reveal as="div" className="trust-band__inner">
+        <ul className="trust-band__list">
+          {TRUST_FACTS.map((fact) => (
+            <li key={fact.label.fr} className="trust-band__item">
+              {typeof fact.value === 'number' && (
+                <strong>
+                  {fact.prefix && <span className="stat-accent">{fact.prefix}</span>}
+                  <CountUp value={fact.value} suffix={fact.suffix} />
+                </strong>
+              )}
+              <span>{fact.label[lang]}</span>
+            </li>
           ))}
+        </ul>
+
+        <div className="trust-marquee">
+          <p className="trust-marquee__label">
+            {lang === 'fr' ? 'Projets & collaborations' : 'Projects & collaborations'}
+          </p>
+          <div className="trust-marquee__viewport">
+            <div className="trust-marquee__track">
+              {marquee.map((name, i) => (
+                <span key={`${name}-${i}`} className="trust-marquee__item">
+                  <span className="trust-marquee__name">{name}</span>
+                  <span className="trust-marquee__sep" aria-hidden="true" />
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </Reveal>
-    </div>
+    </section>
   );
 }

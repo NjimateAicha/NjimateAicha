@@ -1,14 +1,15 @@
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://aichanjimate.com';
+  const baseUrl = 'https://www.aichanjimate.com';
 
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin']
+      disallow: ['/admin', '/api/']
     },
-    sitemap: `${baseUrl}/sitemap.xml`
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl
   };
 }

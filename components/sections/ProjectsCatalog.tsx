@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { CATEGORIES, PROJECTS } from '../../app/content';
+import { CASE_STUDIES } from '../../app/case-studies';
+import { localizePath } from '../../app/i18n';
 import { UI } from '../../app/ui-strings';
 import { useSiteContext } from '../../app/site-context';
 import MediaOrPlaceholder from '../MediaOrPlaceholder';
@@ -51,9 +53,12 @@ export default function ProjectsCatalog({ initialCategory }: { initialCategory?:
             <span className="category-group__line" />
           </div>
           <div className="project-grid-v2">
-            {group.projects.map((project, i) => (
+            {group.projects.map((project, i) => {
+              const hasCaseStudy = Boolean(CASE_STUDIES[project.slug]);
+              const linkLabel = `${hasCaseStudy ? t.viewCaseStudy : t.viewProject} — ${project.title}`;
+              return (
               <Reveal key={project.slug} delay={(i % 8) * 0.03} className="project-card project-card--compact">
-                <Link href={`/projects/${project.slug}`} className="project-card__link">
+                <Link href={localizePath(`/projects/${project.slug}`, lang)} className="project-card__link" aria-label={linkLabel}>
                   <div className="project-card__media project-card__media--contain">
                     <MediaOrPlaceholder
                       src={project.image}
@@ -72,11 +77,14 @@ export default function ProjectsCatalog({ initialCategory }: { initialCategory?:
                         <span key={tag}>{tag}</span>
                       ))}
                     </div>
-                    <span className="text-link">{t.viewCaseStudy}</span>
+                    <span className="text-link">
+                      {hasCaseStudy ? t.viewCaseStudy : t.viewProject}
+                    </span>
                   </div>
                 </Link>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       ))}

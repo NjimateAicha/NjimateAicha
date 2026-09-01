@@ -6,35 +6,38 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useSiteContext } from '../app/site-context';
+import { localizePath } from '../app/i18n';
 import { UI } from '../app/ui-strings';
 import { useScrollY } from './ScrollProvider';
 
 export default function SiteHeader() {
-  const { lang, setLang, theme, setTheme, openReview } = useSiteContext();
+  const { lang, theme, setTheme, otherLocaleHref } = useSiteContext();
   const t = UI[lang];
   const [menuOpen, setMenuOpen] = useState(false);
   const scrollY = useScrollY();
   const scrolled = scrollY > 12;
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const anchor = (hash: string) => (isHome ? hash : `/${hash}`);
+  const isHome = pathname === '/' || pathname === '/en';
+  // On the home page, section links are plain in-page hashes; elsewhere they
+  // jump back to the home of the current language.
+  const anchor = (hash: string) => (isHome ? hash : localizePath(`/${hash}`, lang));
 
+  const home = localizePath('/', lang);
   const links = [
     { href: anchor('#expertise'), label: t.navExpertise },
-    { href: '/projects', label: t.navProjects },
-    { href: anchor('#sectors'), label: t.navSectors },
+    { href: localizePath('/projects', lang), label: t.navProjects },
     { href: anchor('#about'), label: t.navAbout },
-    { href: anchor('#mentoring'), label: t.navMentoring },
-    { href: anchor('#testimonial'), label: t.navTestimonials },
     { href: anchor('#contact'), label: t.navContact }
   ];
 
   const closeMenu = () => setMenuOpen(false);
+  const langLabel = lang === 'fr' ? 'FR / EN' : 'EN / FR';
+  const langAria = lang === 'fr' ? 'Passer en anglais' : 'Switch to French';
 
   return (
     <header className={`topbar ${scrolled ? 'topbar--scrolled' : ''}`}>
-      <Link href="/" className="brand">Aicha Njimate</Link>
+      <Link href={home} className="brand">Aicha Njimate</Link>
 
       <nav className="topbar__nav topbar__nav--desktop">
         {links.map((link) => (
@@ -50,11 +53,10 @@ export default function SiteHeader() {
         >
           {theme === 'dark' ? <Sun size={16} strokeWidth={1.75} /> : <Moon size={16} strokeWidth={1.75} />}
         </button>
-        <button className="pill" onClick={openReview}>{t.reviewCta}</button>
         <a href={anchor('#contact')} className="pill pill--accent">{t.talkProjectCta}</a>
-        <button className="lang-switch" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label="Switch language">
-          {lang === 'fr' ? 'FR / EN' : 'EN / FR'}
-        </button>
+        <a href={otherLocaleHref} className="lang-switch" hrefLang={lang === 'fr' ? 'en' : 'fr'} aria-label={langAria}>
+          {langLabel}
+        </a>
         <button
           className={`hamburger ${menuOpen ? 'hamburger--open' : ''}`}
           onClick={() => setMenuOpen((v) => !v)}
@@ -89,13 +91,15 @@ export default function SiteHeader() {
               </motion.a>
             ))}
             <div className="mobile-menu__actions">
-              <button
+              <a
+                href={otherLocaleHref}
                 className="lang-switch lang-switch--mobile"
-                onClick={() => { setLang(lang === 'fr' ? 'en' : 'fr'); closeMenu(); }}
-                aria-label="Switch language"
+                hrefLang={lang === 'fr' ? 'en' : 'fr'}
+                aria-label={langAria}
+                onClick={closeMenu}
               >
-                {lang === 'fr' ? 'FR / EN' : 'EN / FR'}
-              </button>
+                {langLabel}
+              </a>
               <button
                 className="theme-toggle theme-toggle--mobile"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -104,7 +108,6 @@ export default function SiteHeader() {
                 {theme === 'dark' ? <Sun size={16} strokeWidth={1.75} /> : <Moon size={16} strokeWidth={1.75} />}
                 <span>{t.themeToggleLabel}</span>
               </button>
-              <button className="pill" onClick={() => { openReview(); closeMenu(); }}>{t.reviewCta}</button>
               <a href={anchor('#contact')} className="pill pill--accent" onClick={closeMenu}>{t.talkProjectCta}</a>
             </div>
           </motion.nav>

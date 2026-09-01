@@ -2,11 +2,17 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Lang, Testimonial, TESTIMONIALS } from '../../app/content';
+import { INSTAGRAM_REVIEWS, Lang, Testimonial, TESTIMONIALS } from '../../app/content';
 import { UI } from '../../app/ui-strings';
 import { getSupabaseClient } from '../../lib/supabaseClient';
-import MediaOrPlaceholder from '../MediaOrPlaceholder';
 import Reveal from '../motion/Reveal';
+
+function computeInitials(name: string): string {
+  const clean = name.replace(/^@/, '').trim();
+  const words = clean.split(/[\s—–-]+/).filter(Boolean);
+  if (words.length >= 2) return (words[0][0] + words[1][0]).toUpperCase();
+  return clean.slice(0, 2).toUpperCase() || '★';
+}
 
 export default function Testimonials({ lang, onOpenReview }: { lang: Lang; onOpenReview: () => void }) {
   const t = UI[lang];
@@ -36,8 +42,13 @@ export default function Testimonials({ lang, onOpenReview }: { lang: Lang; onOpe
       });
   }, []);
 
-  const allTestimonials = [...TESTIMONIALS, ...approvedReviews];
-  const current = allTestimonials[index];
+  // Instagram reviews are real client recommendations (see content.ts).
+  const instagram = INSTAGRAM_REVIEWS.filter((r) => r.quote.fr.trim() || r.quote.en.trim());
+
+  // Approved Supabase reviews first, then the Instagram reviews, then the
+  // curated ones. The arrows browse through every approved review.
+  const allTestimonials = [...approvedReviews, ...instagram, ...TESTIMONIALS];
+  const current = allTestimonials[index] ?? allTestimonials[0];
 
   const go = (dir: number) => {
     setDirection(dir);
@@ -45,7 +56,7 @@ export default function Testimonials({ lang, onOpenReview }: { lang: Lang; onOpe
   };
 
   return (
-    <section id="testimonial" className="section">
+    <section id="testimonial" className="section section--panel">
       <div className="section__heading section__heading--row">
         <div>
           <Reveal><p className="eyebrow">{t.testimonialsEyebrow}</p></Reveal>
@@ -67,19 +78,14 @@ export default function Testimonials({ lang, onOpenReview }: { lang: Lang; onOpe
               transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="testimonial-slider__card"
             >
-              {current.image && (
-                <MediaOrPlaceholder
-                  src={current.image}
-                  alt={current.name}
-                  label={t.missingImageLabel}
-                  className="testimonial-slider__image"
-                />
-              )}
+              <span className="testimonial-slider__avatar" aria-hidden="true">
+                {current.initials ?? computeInitials(current.name)}
+              </span>
               <p className="testimonial-slider__rating">{'★'.repeat(current.rating)}</p>
               <p className="testimonial-slider__text">{current.quote[lang]}</p>
               <h3>{current.name}</h3>
               {current.role[lang] && <p className="testimonial-card__role">{current.role[lang]}</p>}
-              <p className="text-link text-link--static">{current.project}</p>
+              {current.project && <p className="text-link text-link--static">{current.project}</p>}
             </motion.article>
           </AnimatePresence>
         </div>
@@ -88,7 +94,7 @@ export default function Testimonials({ lang, onOpenReview }: { lang: Lang; onOpe
           <button aria-label="Previous" onClick={() => go(-1)}>←</button>
           <div className="testimonial-slider__dots">
             {allTestimonials.map((testimonial, i) => (
-              <span key={testimonial.name} className={i === index ? 'active' : ''} />
+              <span key={`${testimonial.name}-${i}`} className={i === index ? 'active' : ''} />
             ))}
           </div>
           <button aria-label="Next" onClick={() => go(1)}>→</button>

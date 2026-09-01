@@ -4,12 +4,13 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { Lang } from '../../app/content';
 import { UI } from '../../app/ui-strings';
-import CountUp from '../motion/CountUp';
 import SplitReveal from '../motion/SplitReveal';
 
 export default function Hero({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const shouldReduceMotion = useReducedMotion();
+
+  const proofs = [t.heroProofProjects, t.heroProofScope, t.heroProofReach];
 
   return (
     <section className="hero-v2">
@@ -37,9 +38,23 @@ export default function Hero({ lang }: { lang: Lang }) {
           animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          <a href="#projects" className="btn btn--primary">{t.heroExplore}</a>
+          <a href="#work" className="btn btn--primary">{t.heroExplore}</a>
           <a href="#contact" className="btn btn--secondary">{t.heroTalk}</a>
         </motion.div>
+
+        <motion.ul
+          className="hero-v2__proofs"
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
+          animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.85 }}
+        >
+          {proofs.map((proof) => (
+            <li key={proof}>
+              <span className="hero-v2__proof-dot" aria-hidden="true" />
+              {proof}
+            </li>
+          ))}
+        </motion.ul>
       </div>
 
       <motion.div
@@ -52,7 +67,7 @@ export default function Hero({ lang }: { lang: Lang }) {
         <div className="hero-v2__photo-frame">
           <Image
             src="/images/profile/aicha-njimate-speaking.jpeg"
-            alt="Aicha Njimate"
+            alt="Aicha Njimate, Software Engineer et fondatrice de FalconDeev, en conférence"
             width={640}
             height={800}
             className="hero-v2__photo"
@@ -61,23 +76,13 @@ export default function Hero({ lang }: { lang: Lang }) {
         </div>
 
         <motion.div
-          className="hero-v2__float hero-v2__float--top"
-          initial={shouldReduceMotion ? undefined : { opacity: 0, x: 18 }}
-          animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 1 }}
-        >
-          <strong><CountUp value={25} suffix="+" /></strong>
-          <span>companies &amp; projects</span>
-        </motion.div>
-
-        <motion.div
           className="hero-v2__float hero-v2__float--bottom"
           initial={shouldReduceMotion ? undefined : { opacity: 0, x: -18 }}
           animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 1.15 }}
         >
           <span className="hero-v2__float-dot" />
-          <span>Founder of FalconDeev</span>
+          <span>{t.heroBadge}</span>
         </motion.div>
       </motion.div>
     </section>

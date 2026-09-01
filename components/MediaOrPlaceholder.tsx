@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { OatzyPlaceholder, Studio8Placeholder } from './PlaceholderArt';
 
 const ILLUSTRATED_PLACEHOLDERS: Record<string, (className?: string) => JSX.Element> = {
@@ -23,11 +24,24 @@ export default function MediaOrPlaceholder({
   slug?: string;
   fill?: boolean;
 }) {
-  if (src) {
+  // If a real image is declared but the file is missing / fails to load, fall
+  // back to the same graceful placeholder instead of a broken-image icon.
+  const [errored, setErrored] = useState(false);
+
+  if (src && !errored) {
     if (fill) {
-      return <Image src={src} alt={alt} fill className={className} />;
+      return <Image src={src} alt={alt} fill className={className} onError={() => setErrored(true)} />;
     }
-    return <Image src={src} alt={alt} width={900} height={620} className={className} />;
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={900}
+        height={620}
+        className={className}
+        onError={() => setErrored(true)}
+      />
+    );
   }
 
   if (slug && ILLUSTRATED_PLACEHOLDERS[slug]) {

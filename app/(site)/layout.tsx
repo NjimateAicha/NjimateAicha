@@ -1,5 +1,5 @@
 import SiteChrome from '../../components/SiteChrome';
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
-  return <SiteChrome>{children}</SiteChrome>;
+  return <SiteChrome locale="fr">{children}</SiteChrome>;
 }

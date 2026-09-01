@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '../../../lib/supabaseAdmin';
+import { getSupabaseClient } from '../../../lib/supabaseClient';
 import { isRateLimited } from '../../../lib/rateLimit';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,32 +32,36 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing or invalid required fields' }, { status: 400 });
   }
 
-  const supabase = getSupabaseAdmin();
+  // Prefer the service-role client (bypasses RLS). If SUPABASE_SERVICE_ROLE_KEY
+  // is not configured, fall back to the anon client: the `contact_requests`
+  // table has an anon INSERT policy that ONLY accepts rows with status = 'new'
+  // (see supabase/schema.sql), and NO anon SELECT policy at all — the public can
+  // never read a contact request back. status is forced to 'new' server-side.
+  const supabase = getSupabaseAdmin() ?? getSupabaseClient();
   if (!supabase) {
     return NextResponse.json({ error: 'Server is not configured' }, { status: 500 });
   }
 
-  const { data, error } = await supabase
-    .from('contact_requests')
-    .insert([
-      {
-        name,
-        email,
-        company,
-        current_website: currentWebsite,
-        project_type: projectType,
-        estimated_budget: estimatedBudget,
-        target_launch_date: targetLaunchDate || null,
-        message,
-        status: 'new'
-      }
-    ])
-    .select('id')
-    .single();
+  // No `.select()` here on purpose: the anon role cannot read the row back
+  // (no anon SELECT policy), and the inserted id is not used by the client.
+  const { error } = await supabase.from('contact_requests').insert([
+    {
+      name,
+      email,
+      company,
+      current_website: currentWebsite,
+      project_type: projectType,
+      estimated_budget: estimatedBudget,
+      target_launch_date: targetLaunchDate || null,
+      message,
+      status: 'new'
+    }
+  ]);
 
   if (error) {
+    console.error('[api/contact] insert failed:', error.message);
     return NextResponse.json({ error: 'Could not save your request' }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true, id: data?.id });
+  return NextResponse.json({ ok: true });
 }
